@@ -1,0 +1,11 @@
+# Ignore Mac system files
+*.DS_store
+
+# Ignore idea folder
+.idea
+
+# Ignore pycache
+__pycache__
+
+# Ignore virtual environment
+venv
