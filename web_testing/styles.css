@@ -1,0 +1,185 @@
+:root{
+--brand-white: rgb(255,255,255);
+--brand-black: rgb(0,0,0);   
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Arimo&family=Noto+Sans:wght@400;700&display=swap');
+
+
+body{ 
+    font-family: 'Arimo', sans-serif;
+    font-size: 100%;
+    background-color: var(--brand-white);
+    margin:0;
+}
+
+.navbar-toggler-icon{
+    background-color:var(--brand-white);
+   
+}
+
+.navbar{
+    --brand-black:rgb(0,0,0);
+    background-color: var(--brand-black);
+    border-bottom:1px solid black;
+        }
+        
+.nav-item:hover{
+    background-color:var(--brand-white);
+    }
+        
+.nav-link{
+    font-size: 1.5em;
+    color:white;
+    }
+        
+.nav-link:hover{
+    color:var(--brand-black);
+    }
+        
+.btn-outline{
+    border:1px solid white;
+    padding:0 1em; 
+    }
+        
+.btn-outline:hover{
+    background-color:var(--brand-white)
+    }
+    
+.container-fluid{
+    border:0px solid blue;
+    padding:0;   
+}
+
+.container-lg{
+    border:0px solid pink;
+    background-color:rgb(255,255,255);
+    overflow:auto;
+    margin-bottom:1.5em;
+}
+
+.footer-content{
+    background-color: var(--brand-black);
+    text-align: center;
+    padding: 0.5em 0 0.5em 0;
+    color:white;
+}
+
+.footer-content p:first-child{
+    font-weight:600;
+    font-size: 1.5em; 
+}
+
+
+.body-text{
+    font-size:1.8em;
+    text-align:center;
+}
+
+
+h1{
+    font-size: 3em;
+    font-weight:600;
+    margin-top:-8em; 
+    margin-left:1em;
+  }
+
+
+h3{
+    font-size:2em;
+    margin-top:0.8em;
+    top:50%;
+    left:0%;
+    margin-left:0.8em;
+    font-weight:bold;
+}
+.region-text{
+    font-size: 3em;
+    margin-left: 2em;
+}
+
+
+.container {
+  position: relative;
+  text-align: center;
+  color: white;
+}
+
+.pic{
+    width:1440px;   
+}
+
+/* Create three equal columns that floats next to each other */
+.column {
+    float: left;
+    width: 30%;
+    padding: 10px;
+    height: 300px;
+    margin-left:1em;
+    margin-top:1em;
+    margin-bottom:2em;
+}
+
+/* Clear floats after the columns */
+.row:after {
+    content: "";
+    display: table;
+    clear: both;
+    height: 297px;
+}
+
+.left{
+    background-color:#aaa;
+    margin-left:4em;
+    height:297px; 
+}
+
+.middle{
+    background-color:#bbb;
+    height:297px;
+}
+
+.right{
+    background-color:#ccc;
+    height:297px;
+}
+
+.date{
+    float: right;
+    font-size:1.2em;
+    margin-top:0.5em;
+    margin-right:0.5em;
+    font-weight:bold;
+}
+
+.event-photo{
+    width:400px;
+    margin-left:0.5em;
+    border: 5px solid rgb(255,255,255);   
+}
+
+.events{
+    float: left;
+    font-size:1.2em;
+    margin-top:0.5em;
+    font-weight:bold;
+    margin-left:0.3em;
+}
+
+
+@media only screen and (max-width:768px) {
+    .body-text , .quote{
+        font-size:1.5em;
+    }
+    h1{
+        font-size:2em;
+    }
+}
+
+@media only screen and (max-width:576px){
+    
+    .part-img{
+        max-width:100%;
+    }
+
+}
