@@ -1,8 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Arimo&family=Noto+Sans:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Gothic:wght@400;700&display=swap');
 
-
-body{ 
-    font-family: 'Arimo', sans-serif;
+body{
+    font-family: 'Nanum Gothic', sans-serif;
     font-size: 100%;
     background-color: rgb(255,255,255);
     margin:0;
@@ -55,12 +54,13 @@ body{
 
 
 h1{
-    font-size: 2.5em;
+    font-size:2.5em;
     font-weight:600;
     margin-top:-17em;
     text-align: right;
     margin-right:2.5em;
-    color:rgb(255,255,255); 
+    color:rgb(255,255,255);
+
 }
 
 h4{
@@ -117,8 +117,6 @@ h3{
     margin-top:0em;
     height:297px;
     margin-right:2em;
-
- 
 }
 
 .column-2{
@@ -214,15 +212,6 @@ h3{
     margin-left:0.3em;
 }
 
-.oval{
-    border-radius: 75%;
-    width: 450px;
-    height: 425px;
-    margin-left:54em;
-    margin-top:-101em;
-
-}
-
 .pic{
     width:1440px;
 }
@@ -302,6 +291,7 @@ h3{
     text-align: center;
     padding: 0.5em 0 0.5em 0;
     color:white;
+
 }
 
 .footer-content p:first-child{
@@ -394,7 +384,94 @@ h3{
     top: 50%;
     right: 0;
 }
+.heading{
+    position:absolute;
+    position:relative;
+    text-align:center;
+    font-size: 3em;
+    color: rgb(255,255,255);
+    margin-top:-1.3em;
+}
 
+.rules{
+    font-size:1.1em;
+    margin-left:6em;
+    margin-right:2em;
+    color:rgb(255,255,255);
+}
+
+.big-container{
+    position:relative;
+}
+
+.col-6{
+    float: left;
+    position:absolute;
+    position:relative;
+    width: 67%;
+    padding: 10px;
+    margin-top:1em;
+}
+.col-7{
+    float: right;
+    position:absolute;
+    position:relative;
+    width: 30%;
+    padding: 10px;
+    margin-top:0em;
+    height:297px;
+    margin-right:2em;
+}
+.col-8{
+    position:absolute;
+    position:relative;
+    width: 100%;
+    padding: 10px;
+}
+
+.htp-container{
+    background-color:rgb(169,169,169);
+}
+
+.htp-photo{
+    width:350px;
+    margin-left:1em;
+    border: 5px solid rgb(255,255,255);
+    margin-top:1em;
+    border-color:green;
+}
+
+.subtitle-box{
+    background-color: rgb(0,171,0);
+    width:1200px;
+    margin-top:7em;
+    margin-left:6em;
+    margin-right:2em;
+    height:25px;
+    }
+
+.learn-hb{
+    font-size:1.5em;
+    text-align:center;
+    margin-left:3.5em;
+    margin-right:5em;
+    color:rgb(255,255,255);
+}
+
+.c9{
+    position:absolute;
+    position:relative;
+    float:left;
+    width:20%;
+    margin-right:0em;
+    margin-left:10em;
+}
+
+.info{
+    font-size:1.5em;
+    color:black;
+    font-weight:600;
+}
 
 @media only screen and (max-width:768px) {
     .body-text , .quote{
@@ -538,8 +615,8 @@ h3{
         right: 0;
 }
   
-   
-    
+
+
 
 
 }
