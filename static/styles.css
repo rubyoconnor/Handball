@@ -75,6 +75,7 @@ h3{
 /*banner*/
 .grad-container{
     background-image:linear-gradient(black, white);
+    height:1200px;
 }
 
 .nzhandball{
@@ -204,6 +205,7 @@ h3{
     background-color:#ccc;
 
     }
+
 .events{
     float: left;
     font-size:1.3em;
@@ -250,6 +252,17 @@ h3{
     margin-top:0em;
 }
 
+
+.heading-2{
+   position:absolute;
+   position:relative;
+   text-align:center;
+   font-size: 3em;
+   color: rgb(0,0,0);
+   margin-top:0em;
+}
+
+
 .rules{
     font-size:1.2em;
     margin-left:6em;
@@ -262,34 +275,48 @@ h3{
     padding: 10px;
 }
 
-.col-9{
-    float: left;
-    width: 67%;
-    padding: 10px;
-    margin-top:1em;
-}
-.col-10{
-    float:right;
-    width: 30%;
-    padding: 10px;
-    margin-top:0em;
-    height:297px;
+.col-9 {
+   float:left;
+   position:absolute;
+   position:relative;
+   width: 65%;
+   padding: 20px;
+
+   }
+
+.col-10 {
+    width: 35%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin-left:0em;
     margin-right:2em;
-}
+
+   }
 
 .htp-photo{
     width:325px;
-    border: 5px solid red;
+    border: 5px solid green;
 }
 
 .subtitle-box{
-    background-color: red;
+    background-color: rgb(141,228,97);
     width:1250px;
     margin-top:7em;
     margin-left:5em;
     margin-right:2em;
     height:5px;
     }
+
+.subtitle-box-2{
+   background-color: green;
+   width:1250px;
+   margin-top:0em;
+   margin-left:5em;
+   margin-right:2em;
+   height:5px;
+   }
+
 
 .learn-hb{
     font-size:1.5em;
@@ -313,9 +340,22 @@ h3{
     font-weight:600;
 }
 
-.pic{
-    width:1440px;
+.htp-banner{
+   font-size:5em;
+   color:rgb(255,255,255);
+   margin-top:-0.3em;
+   font-family: 'Roboto Condensed', sans-serif;
 }
+
+.shooter{
+   float:left;
+   width:150px;
+   margin-left:2em;
+   margin-top:2em;
+   margin-right:1em;
+}
+
+
 
 @media only screen and (max-width:768px) {
     .body-text , .quote{
