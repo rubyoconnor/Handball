@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+
+{% block title %}
+News
+{% endblock %}
+
+{% block banner %}
+static/images/big_banner.png
+{% endblock %}
+
+{% block content %}
+<div class="container-lg py-sm-5 py-1">
+     <h1> News</h1>
+    <div class="news p-4 my-4 text-end">
+        <a class="btn btn-primary" href="">Add News</a>
+    </div>
+
+
+    {% for row in news %}
+    <div class="news p-4 my-4">
+    <h2>{{ row['title'] }}</h2>
+        <div class="subtitle"> {{row ['subtitle']}}</div>
+        <p class="news-text"> {{row ['content'] | replace("\n", "<br>") | safe}}  </p>
+        <div class="news-meta">Posted by {{ row['name'] }} on {{ row['newsdate'] | news_date }}</div>
+        <div class="news-meta">
+            <a class="btn btn-primary" href="">Update</a>
+            <a class="btn btn-primary" href="">Delete</a>
+        </div>
+    </div>
+    {% endfor %}
+
+
+</div>
+{% endblock %}
