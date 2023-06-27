@@ -5,20 +5,22 @@ News
 {% endblock %}
 
 {% block banner %}
-static/images/big_banner.png
+
 {% endblock %}
 
 {% block content %}
-<div class="container-lg py-sm-5 py-1">
-     <h1> News</h1>
-    <div class="news p-4 my-4 text-end">
-        <a class="btn btn-primary" href="{{ url_for('news_formpage', id=0, task='add') }}">Add News</a>
+<img class="shooter" src="static/images/small_banner.png">
+<p class="htp-banner">NEWS</p>
+
+<div class="container-lg">
+    <div class="news p-4 mt-2 text-end">
+        <a class="btn btn-primary add-btn" href="{{ url_for('news_formpage', id=0, task='add') }}">Add News</a>
     </div>
 
 
     {% for row in news %}
-    <div class="news p-4 my-4">
-    <h2>{{ row['title'] }}</h2>
+    <div class="news p-2 mb-4">
+    <h5>{{ row['title'] }}</h5>
         <div class="subtitle"> {{row ['subtitle']}}</div>
         <p class="news-text"> {{row ['content'] | replace("\n", "<br>") | safe}}  </p>
         <div class="news-meta">Posted by {{ row['name'] }} on {{ row['newsdate'] | news_date }}</div>
@@ -28,7 +30,6 @@ static/images/big_banner.png
         </div>
     </div>
     {% endfor %}
-
 
 </div>
 {% endblock %}

@@ -38,10 +38,12 @@ body{
 
 
 .container-lg{
-    border:0px solid pink;
+    border:2px solid black;
     background-color:rgb(255,255,255);
     overflow:auto;
     margin-bottom:1.5em;
+    width:650px;
+    margin-top:6em;
 }
 
 .navbar-toggler-icon{
@@ -70,6 +72,12 @@ h3{
     font-size:2.5em;
     color:rgb(255,255,255);
     font-weight:300;
+}
+
+h5{
+    font-size:2em;
+    font-weight:600;
+    color:rgb(0,0,0);
 }
 
 /*banner*/
@@ -406,6 +414,36 @@ h3{
     margin-left:0.9em;
 }
 
+/*News page*/
+
+.subtitle{
+    font-size: 1.5em;
+    border-bottom: 1px solid gray;
+    color: gray;
+}
+
+.news{
+    max-width: 600px;
+    background-color: var(--brand-paper);
+    border-radius: 2em;
+}
+.news-text{
+    font-size: 1.25em;
+}
+.news-meta{
+    text-align: end;
+    font-weight: bold;
+}
+
+.btn{
+font-size: 1.3em;
+    --bs-btn-padding-y:0.1em;
+
+}
+
+.add-btn{
+
+}
 
 @media only screen and (max-width:768px) {
     .body-text , .quote{
