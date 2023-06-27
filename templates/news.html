@@ -12,7 +12,7 @@ static/images/big_banner.png
 <div class="container-lg py-sm-5 py-1">
      <h1> News</h1>
     <div class="news p-4 my-4 text-end">
-        <a class="btn btn-primary" href="">Add News</a>
+        <a class="btn btn-primary" href="{{ url_for('news_formpage', id=0, task='add') }}">Add News</a>
     </div>
 
 
@@ -23,8 +23,8 @@ static/images/big_banner.png
         <p class="news-text"> {{row ['content'] | replace("\n", "<br>") | safe}}  </p>
         <div class="news-meta">Posted by {{ row['name'] }} on {{ row['newsdate'] | news_date }}</div>
         <div class="news-meta">
-            <a class="btn btn-primary" href="">Update</a>
-            <a class="btn btn-primary" href="">Delete</a>
+            <a class="btn btn-primary" href="{{ url_for('news_formpage', id=row['news_id'], task='update') }}">Update</a>
+            <a class="btn btn-primary" href="{{ url_for('news_formpage', id=row['news_id'], task='delete') }}">Delete</a>
         </div>
     </div>
     {% endfor %}
