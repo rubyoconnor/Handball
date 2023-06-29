@@ -1,0 +1,48 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Sign up
+{% endblock %}
+
+{% block banner %}
+{% endblock %}
+
+
+{% block content %}
+<div class="container-lg">
+<p class="body-text">
+Sign up to see all the updates you need for your team.
+</p>
+</div>
+
+<div class="container-lg p-3">
+    <form action="{{url_for('signup')}}" Method ="POST">
+        <div>
+            <label for="firstname" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="" value="{{firstname}}" required>
+        </div>
+
+        <div>
+            <label for="secondname" class="form-label">Second Name</label>
+            <input type="text" class="form-control" id="secondname" name="secondname" placeholder="" value="{{secondname}}" required>
+        </div>
+        <div>
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control" id="email" name="email" placeholder="" value="{{email}}" required>
+        </div>
+        <div>
+            <label for="aboutme" class="form-label">Tell us about yourself</label>
+            <textarea id="aboutme" class="form-control" name="aboutme" rows="5">{{aboutme}}</textarea>
+        </div>
+
+
+
+        <div class="text-end">
+          <button type="reset" class="btn btn-primary">Reset</button>
+          <button  type="submit" class="btn btn-primary" >Submit</button>
+        </div>
+    </form>
+
+</div>
+
+{% endblock %}

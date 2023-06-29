@@ -114,6 +114,26 @@ def news_formpage():
            message = "Unrecognised task coming from news form submission"
            return render_template('error.html', message=message)
 
+@app.route('/signup', methods=["GET", "POST"])
+def signup():
+
+    if request.method =="POST":
+        f = request.form
+        print(f)
+
+
+
+        return render_template("confirm.html", form_data=f)
+
+    elif request.method =="GET":
+        temp_form_data={
+            "firstname" : "Jess",
+            "secondname": "Batten",
+            "email": "jb@gmail.com",
+            "aboutme": "I like sport",
+        }
+        return render_template("signup.html", **temp_form_data)
+
 
 if __name__ == "__main__":
     app.run(debug=True)

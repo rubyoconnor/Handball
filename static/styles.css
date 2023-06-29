@@ -50,6 +50,10 @@ body{
     background-color:rgb(255,255,255);  
 }
 
+nav .btn-outline{
+    display:inline-block;
+}
+
 /* Headings*/
 h1{
     font-size:2em;
@@ -424,8 +428,9 @@ h5{
 
 .news{
     max-width: 600px;
-    background-color: var(--brand-paper);
-    border-radius: 2em;
+    background-color: ;
+    border-radius: 1em;
+
 }
 .news-text{
     font-size: 1.25em;
@@ -445,6 +450,16 @@ font-size: 1.3em;
 
 }
 
+/* form */
+
+label, input[type='text'], input[type='email'], textarea{
+font-size: 1.2em !important;
+}
+
+
+form p{
+font-size: 1.5em;
+}
 @media only screen and (max-width:768px) {
     .body-text , .quote{
         font-size:1.5em;
