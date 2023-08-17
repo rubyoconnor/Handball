@@ -136,6 +136,7 @@ def signup():
 
 @app.route('/login', methods=["GET", "POST"])
 def login():
+    error = "Your credentials are not recognised"
     if request.method == "GET":
         return render_template("log-in.html", email='joyce@marsden.com', password="temp")
 
@@ -145,7 +146,17 @@ def login():
         sql = """select name, password, authorisation from member where email= ?"""
         values_tuple=(f['email'],)
         result = run_search_query_tuples(sql,values_tuple, db_path, True)
-        print(result)
+        if result:
+            result = result[0]
+            if result ['password'] == f['password']:
+                print('Log in okay')
+                return redirect(url_for('index'))
+            else:
+                return render_template("log-in.html", email='joyce@marsden.com', password="temp", error=error)
+
+        else:
+            return render_template("log-in.html", email='joyce@marsden.com', password="temp", error=error)
+
         return "<h1>Posting from log in form</h1>"
 
 
