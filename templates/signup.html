@@ -16,7 +16,7 @@ Sign up to see all the updates you need for your team.
 </div>
 
 <div class="container-lg p-3">
-    <form action="{{url_for('signup')}}" Method ="POST">
+    <form action="{{url_for('signup')}}" method ="POST">
         <div>
             <label for="firstname" class="form-label">First Name</label>
             <input type="text" class="form-control" id="firstname" name="firstname" placeholder="" value="{{firstname}}" required>
@@ -36,13 +36,11 @@ Sign up to see all the updates you need for your team.
         </div>
 
 
-
         <div class="text-end">
           <button type="reset" class="btn btn-primary">Reset</button>
           <button  type="submit" class="btn btn-primary" >Submit</button>
         </div>
     </form>
-
 </div>
 
 {% endblock %}

@@ -114,14 +114,14 @@ def news_formpage():
            message = "Unrecognised task coming from news form submission"
            return render_template('error.html', message=message)
 
+
+
 @app.route('/signup', methods=["GET", "POST"])
 def signup():
 
     if request.method =="POST":
         f = request.form
         print(f)
-
-
 
         return render_template("confirm.html", form_data=f)
 
@@ -134,6 +134,19 @@ def signup():
         }
         return render_template("signup.html", **temp_form_data)
 
+@app.route('/login', methods=["GET", "POST"])
+def login():
+    if request.method == "GET":
+        return render_template("log-in.html", email='joyce@marsden.com', password="temp")
 
-if __name__ == "__main__":
-    app.run(debug=True)
+    elif request.method == "POST":
+        f = request.form
+        print(f)
+        sql = """select name, password, authorisation from member where email= ?"""
+        values_tuple=(f['email'],)
+        result = run_search_query_tuples(sql,values_tuple, db_path, True)
+        print(result)
+        return "<h1>Posting from log in form</h1>"
+
+
+app.run(debug=True)

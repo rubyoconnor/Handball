@@ -443,23 +443,25 @@ h5{
 .btn{
 font-size: 1.3em;
     --bs-btn-padding-y:0.1em;
-
+    margin-top:0.5em;
 }
 
 .add-btn{
-
 }
 
-/* form */
 
+/* signup form */
 label, input[type='text'], input[type='email'], textarea{
 font-size: 1.2em !important;
 }
 
-
 form p{
 font-size: 1.5em;
 }
+
+
+
+
 @media only screen and (max-width:768px) {
     .body-text , .quote{
         font-size:1.5em;

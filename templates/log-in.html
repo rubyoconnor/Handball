@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+
+{% block title %}
+login
+{% endblock %}
+
+
+{% block banner %}
+{% endblock %}
+
+{% block content %}
+<div class="container-lg py-sm-5 py-1">
+    <div class="news p-4 my-4">
+        <h2>Please enter your credentials</h2>
+        <div class="alert">{{error}}</div>
+        <form action="{{url_for('login')}}" method="POST">
+            <div>
+                <label for="email" class="form-label">PLease enter your email</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="" value="{{email}}" required>
+            </div>
+            <div>
+                <label for="password" class="form-label">Please enter your password</label>
+                <input type="password" class="form-control" id="password" name="password" placeholder="" value="{{password}}" required>
+            </div>
+            <div class="text-end">
+                <button type="reset" class="btn btn-primary">Reset</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}
+
+
