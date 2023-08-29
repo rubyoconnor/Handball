@@ -163,4 +163,12 @@ def login():
 
         return "<h1>Posting from log in form</h1>"
 
+
+@app.route('/logout')
+def logout():
+    session.clear()
+    return redirect(url_for('index'))
+
+
+
 app.run(debug=True)

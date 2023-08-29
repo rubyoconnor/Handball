@@ -459,7 +459,12 @@ form p{
 font-size: 1.5em;
 }
 
-
+.session{
+    background-color: white;
+    color:black;
+    text-align:center;
+    font-size: 1.5em;
+}
 
 
 @media only screen and (max-width:768px) {

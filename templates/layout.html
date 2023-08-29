@@ -47,11 +47,15 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.j
         </li>
       </ul>
 
-        <div class="ms-auto">
-            <a class="nav-link btn btn-outline" href="{{ url_for('signup') }}">Sign up</a>
-            <a class="nav-link btn btn-outline" href="{{ url_for('login') }}">Log in</a></div>
+<div class="ms-auto">
+    {% if session %}
+    <a class="nav-link btn btn-outline" href="{{ url_for('logout') }}">Log out</a>
+    {% else %}
+    <a class="nav-link btn btn-outline" href="{{ url_for('signup') }}">Sign up</a>
+    <a class="nav-link btn btn-outline" href="{{ url_for('login') }}">Log in</a></div>
+    {% endif %}
+    </div>
 
-        </div>
 </nav>
 
     {% if session %}
