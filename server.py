@@ -1,8 +1,9 @@
-from flask import Flask, render_template, request, redirect, url_for
+from flask import Flask, render_template, request, redirect, url_for, session
 from db_functions import run_search_query_tuples, run_commit_query
 from datetime import datetime
 
 app = Flask(__name__)
+app.secret_key = "kasjdkfjadonviovre"
 db_path = 'data/handball_db.sqlite'
 
 
@@ -136,20 +137,23 @@ def signup():
 
 @app.route('/login', methods=["GET", "POST"])
 def login():
+    print(session)
     error = "Your credentials are not recognised"
     if request.method == "GET":
         return render_template("log-in.html", email='joyce@marsden.com', password="temp")
 
     elif request.method == "POST":
         f = request.form
-        print(f)
         sql = """select name, password, authorisation from member where email= ?"""
         values_tuple=(f['email'],)
         result = run_search_query_tuples(sql,values_tuple, db_path, True)
         if result:
             result = result[0]
             if result ['password'] == f['password']:
-                print('Log in okay')
+                # start a session
+                session['name']=result['name']
+                session['authorisation'] = result['authorisation']
+                print(session)
                 return redirect(url_for('index'))
             else:
                 return render_template("log-in.html", email='joyce@marsden.com', password="temp", error=error)
@@ -158,6 +162,5 @@ def login():
             return render_template("log-in.html", email='joyce@marsden.com', password="temp", error=error)
 
         return "<h1>Posting from log in form</h1>"
-
 
 app.run(debug=True)

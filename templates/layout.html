@@ -53,15 +53,20 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.j
 
         </div>
 </nav>
+
+    {% if session %}
+    <div class="session"> {{ session['name'] }} is logged in and their authorisation is {{session['authorisation'] }}</div>
+    {% endif %}
+
     <div class="grad-container">
-    <img class="nzhandball" src="{% block banner %}{% endblock %}">
+    <img class="nzhandball" src="{% block banner %}{% endblock %}" alt="">
 
 {% block content%}
 
 {% endblock %}
 <footer class="container-fluid footer-content">
     <p>Handball</p>
-    <div>&copy; 1789</div>
+    <div>&copy; 2023</div>
 </footer>
     </div>
 </body>
