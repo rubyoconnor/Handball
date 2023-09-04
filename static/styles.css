@@ -46,6 +46,16 @@ body{
     margin-top:6em;
 }
 
+.draw-container{
+    border:2px solid black;
+    background-color:rgb(255,255,255);
+    margin-bottom:1.5em;
+    width:650px;
+    margin-top:8em;
+    margin-left:1em;
+
+}
+
 .navbar-toggler-icon{
     background-color:rgb(255,255,255);  
 }
@@ -82,6 +92,7 @@ h5{
     font-size:2em;
     font-weight:600;
     color:rgb(0,0,0);
+
 }
 
 /*banner*/
@@ -466,7 +477,19 @@ font-size: 1.5em;
     font-size: 1.5em;
 }
 
-
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+  }
+  th, td {
+    padding: 10px;
+    text-align: center;
+    border: 1px solid #ccc;
+  }
+  th {
+    background-color: #f2f2f2;
+  }
 @media only screen and (max-width:768px) {
     .body-text , .quote{
         font-size:1.5em;

@@ -45,6 +45,9 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.j
            <li class="nav-item">
           <a class="nav-link" href="{{ url_for('news') }}">News</a>
         </li>
+           <li class="nav-item">
+          <a class="nav-link" href="{{ url_for('draw') }}">Draw</a>
+        </li>
       </ul>
 
 <div class="ms-auto">
@@ -59,7 +62,10 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.j
 </nav>
 
     {% if session %}
-    <div class="session"> {{ session['name'] }} is logged in and their authorisation is {{session['authorisation'] }}</div>
+        <div class="session"> {{ session['name'] }} is logged in<br>
+        authorisation is {{ session['authorisation'] }}<br>
+        member_id is {{ session['member_id'] }}
+        </div>
     {% endif %}
 
     <div class="grad-container">

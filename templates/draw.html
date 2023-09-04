@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Draw
+{% endblock %}
+
+
+{% block banner %}
+
+
+{% endblock %}
+
+
+{% block content %}
+<img class="shooter" src="static/images/small_banner.png">
+<p class="htp-banner">DRAW</p>
+
+<div class="draw-container">
+
+<h5 class="mt-3 ">Womens league draw</h5>
+
+<table>
+<thead>
+<tr>
+<th>Date</th>
+<th>Opponent 1</th>
+<th>Opponent 2</th>
+<th>Location</th>
+<th>Time</th>
+</tr>
+</thead>
+
+{% for row in draw %}
+<tr>
+<td>{{row['gamedate']}}</td>
+<td>{{row['teamone']}}</td>
+<td>{{row['teamtwo']}}</td>
+<td>{{row['location']}}</td>
+<td>{{row['gametime']}}</td>
+</tr>
+
+
+      {% endfor %}
+<!-- Add more rows for additional games -->
+
+</div>
+
+</table>
+
+
+{% endblock %}
+

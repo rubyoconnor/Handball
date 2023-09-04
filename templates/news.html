@@ -12,10 +12,13 @@ News
 <img class="shooter" src="static/images/small_banner.png">
 <p class="htp-banner">NEWS</p>
 
+
 <div class="container-lg">
+    {% if session and session['authorisation'] == 0 %}
     <div class="news p-4 mt-2 text-end">
         <a class="btn btn-primary add-btn" href="{{ url_for('news_formpage', id=0, task='add') }}">Add News</a>
     </div>
+    {% endif %}
 
 
     {% for row in news %}
@@ -24,12 +27,17 @@ News
         <div class="subtitle"> {{row ['subtitle']}}</div>
         <p class="news-text"> {{row ['content'] | replace("\n", "<br>") | safe}}  </p>
         <div class="news-meta">Posted by {{ row['name'] }} on {{ row['newsdate'] | news_date }}</div>
+
+        {% if session and session['authorisation'] == 0%}
         <div class="news-meta">
             <a class="btn btn-primary" href="{{ url_for('news_formpage', id=row['news_id'], task='update') }}">Update</a>
             <a class="btn btn-primary" href="{{ url_for('news_formpage', id=row['news_id'], task='delete') }}">Delete</a>
         </div>
+        {% endif %}
     </div>
     {% endfor %}
+
+
 
 </div>
 {% endblock %}
