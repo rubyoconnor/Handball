@@ -1,0 +1,60 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Draw
+{% endblock %}
+
+{% block banner %}
+{% endblock %}
+
+
+{% block content %}
+<div class="container-lg py-sm-5 py-1">
+  <div class="news p-4 my-4">
+      <h2>Please update/edit the draw</h2>
+ <form action="{{url_for('editdraw_page', id=id, task=task)}}" method="POST">
+
+<table>
+<tr>
+<th>Date</th>
+<th>Opponent 1</th>
+<th>Opponent 2</th>
+<th>Location</th>
+<th>Time</th>
+</tr>
+</thead>
+
+<tr>
+<td><div>
+    <input type="text" class="form-control" id="gamedate" name="gamedate" placeholder="" value="{{gamedate}}" required>
+</div></td>
+
+<td><div>
+    <input type="text" class="form-control" id="teamone" name="teamone" placeholder="" value="{{teamone}}" required>
+</div></td>
+
+<td><div>
+    <input type="text" class="form-control" id="teamtwo" name="teamtwo" placeholder="" value="{{teamtwo}}" required>
+</div></td>
+
+<td><div>
+    <input type="text" class="form-control" id="location" name="location" placeholder="" value="{{location}}" required>
+</div></td>
+
+<td><div>
+    <input type="text" class="form-control" id="gametime" name="gametime" placeholder="" value="{{gametime}}" required>
+</div></td>
+</tr>
+
+ </form>
+  </div>
+</div>
+</table>
+<div class="text-end">
+            <button type="reset" class="btn btn-primary">Reset</button>
+            <button  type="submit" class="btn btn-primary" >Submit</button>
+        </div>
+</div>
+
+
+{% endblock %}
