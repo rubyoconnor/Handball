@@ -36,6 +36,10 @@ body{
     background-color:rgb(255,255,255);
         }
 
+.draw-title{
+    margin-top:2.5em;
+    margin-left:0.7em;
+}
 
 .container-lg{
     border:2px solid black;
@@ -46,13 +50,24 @@ body{
     margin-top:6em;
 }
 
-.draw-container{
-    border:2px solid black;
+.th, td{
     background-color:rgb(255,255,255);
-    margin-bottom:1.5em;
-    width:650px;
-    margin-top:8em;
-    margin-left:1em;
+    text-align: center;
+    padding: 8px;
+    border: 2px solid #ccc;
+}
+
+table {
+    width:95%;
+    margin:auto;
+    margin-bottom: 2em;
+    margin-top:-2em;
+  }
+
+th{
+    background-color: #f2f2f2;
+    border: 2px solid #ccc;
+
 
 }
 
@@ -258,7 +273,6 @@ h5{
     position:absolute;
     width: 100%;
     display:block;
-
 }
 
 .footer-content p:first-child{
@@ -477,19 +491,6 @@ font-size: 1.5em;
     font-size: 1.5em;
 }
 
-  table {
-    width: 100%;
-    border-collapse: collapse;
-    margin-top: 20px;
-  }
-  th, td {
-    padding: 10px;
-    text-align: center;
-    border: 1px solid #ccc;
-  }
-  th {
-    background-color: #f2f2f2;
-  }
 @media only screen and (max-width:768px) {
     .body-text , .quote{
         font-size:1.5em;

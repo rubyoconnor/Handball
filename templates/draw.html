@@ -4,10 +4,7 @@
 Draw
 {% endblock %}
 
-
 {% block banner %}
-
-
 {% endblock %}
 
 
@@ -15,20 +12,18 @@ Draw
 <img class="shooter" src="static/images/small_banner.png">
 <p class="htp-banner">DRAW</p>
 
-<div class="draw-container">
+
+<h3 class="draw-title">Women's league draw</h3>
+           <div class="p-4 mt-2 text-end">
+               {% if session and session['authorisation'] == 0 %}
+               <a class="btn btn-primary add-btn" href="{{ url_for('editdraw_page', id=0, task='add') }}">Add News</a>
+               {% endif %}
+               </div>
 
 
-<h5 class="mt-3 ">Womens league draw</h5>
-           <div class="news p-4 mt-2 text-end">
-        <a class="btn btn-primary add-btn" href="{{ url_for('editdraw_page', id=0, task='add') }}">Add News</a>
-
+{% if session and session['authorisation'] == 0 %}
 {% for row in draw %}
 <table>
-<thead>
-<div class="news-meta">
-         <a class="btn btn-primary" href="{{ url_for('editdraw_page', id=row['program_id'], task='update') }}">Update</a>
-         <a class="btn btn-primary" href="{{ url_for('editdraw_page', id=row['program_id'], task='delete') }}">Delete</a>
-   </div>
 <tr>
 <th>Date</th>
 <th>Opponent 1</th>
@@ -36,8 +31,33 @@ Draw
 <th>Location</th>
 <th>Time</th>
 </tr>
-</thead>
+<tr>
+<td>{{row['gamedate']}}</td>
+<td>{{row['teamone']}}</td>
+<td>{{row['teamtwo']}}</td>
+<td>{{row['location']}}</td>
+<td>{{row['gametime']}}</td>
+</tr>
+<!-- Add more rows for additional games -->
+<div class="news-meta">
+         <a class="btn btn-primary" href="{{ url_for('editdraw_page', id=row['program_id'], task='update') }}">Update</a>
+         <a class="btn btn-primary" href="{{ url_for('editdraw_page', id=row['program_id'], task='delete') }}">Delete</a>
+</div>
+{% endfor %}
+</table>
+{% endif %}
 
+
+{% if session and session['authorisation'] != 0%}
+<table>
+<tr>
+<th>Date</th>
+<th>Opponent 1</th>
+<th>Opponent 2</th>
+<th>Location</th>
+<th>Time</th>
+</tr>
+{% for row in draw %}
 <tr>
 <td>{{row['gamedate']}}</td>
 <td>{{row['teamone']}}</td>
@@ -46,13 +66,30 @@ Draw
 <td>{{row['gametime']}}</td>
 </tr>
 
+{% endfor %}
+        </table>
+{% endif %}
 
-      {% endfor %}
-<!-- Add more rows for additional games -->
 
-</div>
+{% if 'member_id' not in session %}
+<table>
+<tr>
+<th>Date</th>
+<th>Opponent 1</th>
+<th>Opponent 2</th>
+<th>Location</th>
+<th>Time</th>
+</tr>
+{% for row in draw %}
+<tr>
+<td>{{row['gamedate']}}</td>
+<td>{{row['teamone']}}</td>
+<td>{{row['teamtwo']}}</td>
+<td>{{row['location']}}</td>
+<td>{{row['gametime']}}</td>
+</tr>
+{% endfor %}
 </table>
-
+{% endif %}
 
 {% endblock %}
-

@@ -229,8 +229,7 @@ def editdraw_page():
 
         elif data['task'] == 'add':
             # dummy data for testing
-            tem
-            p = {'teamone': 'teamone', 'teamtwo': 'teamtwo', 'location': 'location'}
+            temp = {'teamone': 'teamone', 'teamtwo': 'teamtwo', 'location': 'location'}
             return render_template("editdraw_page.html",
                                     id=0,
                                     task=data['task'],
@@ -247,7 +246,7 @@ def editdraw_page():
        print(f)
        if data['task'] =='add':
            # add the new draw entry to the database
-           sql = """insert into program(gamedate, teamone, teamtwo, location, gametime) 
+           sql = """insert into program(gamedate, teamone, teamtwo, location, gametime)
                                 values(?,?,?,?,?)"""
            values_tuple = (f['gamedate'], f['teamone'], f['teamtwo'], f['location'],f['gametime'])
            result = run_commit_query(sql, values_tuple, db_path)
@@ -256,7 +255,7 @@ def editdraw_page():
 
        elif data['task'] == 'update':
            # we are updating so 'rewrite' all the data even if
-           sql = """update program set gamedate=?, teamone=?, teamtwo=?, location=?, gametime=? where program_id=?
+           sql = """update program set gamedate=?, teamone=?, teamtwo=?, location=?, gametime=? where program_id=? 
                """
            values_tuple = (f['gamedate'], f['teamone'], f['teamtwo'], f['location'], f['gametime'], data['id'])
            result = run_commit_query(sql, values_tuple, db_path)
