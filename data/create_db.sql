@@ -10,7 +10,8 @@ drop table if exists results;
 
 create table member(
     member_id integer primary key autoincrement not null,
-    name text not null,
+    firstname text not null,
+    secondname text not null,
     email text not null unique,
     password text not null,
     authorisation integer not null
@@ -43,19 +44,16 @@ create table results(
     teamonescore integer not null,
     teamtwoscore integer not null,
     winner text not null
-
 );
 
-
-
-insert into member( name, email, password, authorisation)
-values('David', 'david@nzhandball.com', 'temp', 0 );
-insert into member( name, email, password, authorisation)
-values('Rowan', 'rowan@nzhandball.com', 'temp', 0 );
-insert into member( name, email, password, authorisation)
-values('Joyce', 'joyce@marsden.com', 'temp', 1 );
-insert into member( name, email, password, authorisation)
-values('Amelia', 'amelia@qmc.com', 'temp', 1 );
+insert into member(firstname, secondname, email, password, authorisation)
+values('Paul', 'Smith', 'paul@nzhandball.com', 'temp', 0 );
+insert into member(firstname, secondname, email, password, authorisation)
+values('Jess', 'Door','jess@nzhandball.com', 'temp', 0 );
+insert into member(firstname, secondname, email, password, authorisation)
+values('Joyce', 'Chan', 'joyce@marsden.com', 'temp', 1 );
+insert into member(firstname, secondname, email, password, authorisation)
+values('Amelia','Rodd', 'amelia@qmc.com', 'temp', 1 );
 
 insert into news(title, subtitle, content, newsdate, member_id)
 values('Amazing news for the U19 NZ Men''s team',
@@ -63,9 +61,8 @@ values('Amazing news for the U19 NZ Men''s team',
       'They made the cut after placing 2nd in the Oceania Championship that took place in December 2022.' || char(10) ||
       'If you want to help support the team, donations would be appreciated',
       '2023-06-22 15:38:00',
-      (select member_id from member where name='David' )
+      (select member_id from member where firstname='Paul' )
       );
-
 
 insert into news(title, subtitle, content, newsdate, member_id)
 values('NZ Beach Handball Womens Team Selection 2023',
@@ -73,9 +70,8 @@ values('NZ Beach Handball Womens Team Selection 2023',
       'Lily Smith' || char(10) ||
       'We wish this team good luck as they head to the Gold Coast, Australia to compete in the Oceania Championships.',
       '2023-06-15 11:23:00',
-      (select member_id from member where name='Rowan')
+      (select member_id from member where firstname='Jess')
       );
-
 
 insert into program(gamedate, teamone, teamtwo, location, gametime)
 values('2023-08-05',

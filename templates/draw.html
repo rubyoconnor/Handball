@@ -10,18 +10,22 @@ Draw
 
 {% block content %}
 <img class="shooter" src="static/images/small_banner.png">
-<p class="htp-banner">DRAW</p>
+<p class="htp-banner">RESULTS</p>
+
+
 
 
 <h3 class="draw-title">Women's league draw</h3>
-           <div class="p-4 mt-2 text-end">
-               {% if session and session['authorisation'] == 0 %}
-               <a class="btn btn-primary add-btn" href="{{ url_for('editdraw_page', id=0, task='add') }}">Add News</a>
-               {% endif %}
-               </div>
+
+
 
 
 {% if session and session['authorisation'] == 0 %}
+<div class="p-4 mt-2 text-end">
+<a class="btn btn-primary" href="{{ url_for('editdraw_page', id=0, task='add') }}">Add Results</a>
+</div>
+
+
 {% for row in draw %}
 <table>
 <tr>
@@ -31,6 +35,8 @@ Draw
 <th>Location</th>
 <th>Time</th>
 </tr>
+
+
 <tr>
 <td>{{row['gamedate']}}</td>
 <td>{{row['teamone']}}</td>
@@ -38,14 +44,28 @@ Draw
 <td>{{row['location']}}</td>
 <td>{{row['gametime']}}</td>
 </tr>
-<!-- Add more rows for additional games -->
-<div class="news-meta">
-         <a class="btn btn-primary" href="{{ url_for('editdraw_page', id=row['program_id'], task='update') }}">Update</a>
-         <a class="btn btn-primary" href="{{ url_for('editdraw_page', id=row['program_id'], task='delete') }}">Delete</a>
-</div>
-{% endfor %}
 </table>
+
+
+<div class="draw-meta">
+<a class="btn-primary btn" href="{{ url_for('editdraw_page', id=row['program_id'], task='update') }}">Update</a>
+<a class="btn btn-primary" href="{{ url_for('editdraw_page', id=row['program_id'], task='delete') }}">Delete</a>
+</div>
+
+
+
+
+<!-- Add more rows for additional games -->
+
+
+
+
+{% endfor %}
+
+
 {% endif %}
+
+
 
 
 {% if session and session['authorisation'] != 0%}
@@ -66,9 +86,12 @@ Draw
 <td>{{row['gametime']}}</td>
 </tr>
 
+
 {% endfor %}
-        </table>
+</table>
 {% endif %}
+
+
 
 
 {% if 'member_id' not in session %}
@@ -92,4 +115,6 @@ Draw
 </table>
 {% endif %}
 
+
 {% endblock %}
+

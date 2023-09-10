@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for, session
 from db_functions import run_search_query_tuples, run_commit_query
 from datetime import datetime
+from werkzeug.security import generate_password_hash, check_password_hash
 
 app = Flask(__name__)
 app.secret_key = "kasjdkfjadonviovre"
@@ -35,7 +36,7 @@ def regions():
 @app.route('/news')
 def news():
     # query for the page
-    sql = """select news.news_id, news.title, news.subtitle, news.content, news.newsdate, member.name
+    sql = """select news.news_id, news.title, news.subtitle, news.content, news.newsdate, member.firstname
          from news
          join member on news.member_id= member.member_id
          order by news.newsdate desc;
@@ -121,20 +122,21 @@ def news_formpage():
 
 @app.route('/signup', methods=["GET", "POST"])
 def signup():
-
-    if request.method =="POST":
+    if request.method == "POST":
         f = request.form
         print(f)
-
         return render_template("confirm.html", form_data=f)
 
-    elif request.method =="GET":
-        temp_form_data={
-            "firstname" : "Jess",
+    elif request.method == "GET":
+        temp_form_data = {
+            "firstname": "Jess",
             "secondname": "Batten",
             "email": "jb@gmail.com",
             "password": "temp",
-        }
+            }
+        return render_template("index.html", **temp_form_data)
+
+    else:
         return render_template("signup.html", **temp_form_data)
 
 
@@ -147,20 +149,19 @@ def login():
 
     elif request.method == "POST":
         f = request.form
-        sql = """select member_id, name, password, authorisation from member where email= ?"""
+        sql = """select member_id, firstname, secondname, password, authorisation from member where email= ?"""
         values_tuple=(f['email'],)
         result = run_search_query_tuples(sql,values_tuple, db_path, True)
         if result:
             result = result[0]
             if result ['password'] == f['password']:
-                # start a session
-                session['name'] = result['name']
-                session['authorisation'] = result['authorisation']
-                session['member_id'] = result['member_id']
-                return redirect(url_for('index'))
+                    # start a session
+                    session['firstname'] = result['firstname']
+                    session['authorisation'] = result['authorisation']
+                    session['member_id'] = result['member_id']
+                    return redirect(url_for('index'))
             else:
                 return render_template("log-in.html", email='joyce@marsden.com', password="temp", error=error)
-
         return render_template("index.html")
 
 @app.route('/logout')
@@ -184,14 +185,14 @@ def draw():
 @app.route('/results')
 def results():
      # query for the page
-    sql = """select result.result, result.gamedate, result.teamone, result.teamonescore, result.teamtwo, result.teamtwoscore, result.winner
+    sql = """select results.result_id, results.gamedate, results.teamone, results.teamonescore, results.teamtwo, results.teamtwoscore, results.winner
             from results
             """
 
     result = run_search_query_tuples(sql, (), db_path, True)
     print()
 
-    return render_template("draw.html", results=result)
+    return render_template("results.html", results=result)
 
 
 @app.route('/editdraw_page', methods =['GET', 'POST'])

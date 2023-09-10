@@ -61,7 +61,7 @@ table {
     width:95%;
     margin:auto;
     margin-bottom: 2em;
-    margin-top:-2em;
+    margin-top:0em;
   }
 
 th{
@@ -465,13 +465,17 @@ h5{
     font-weight: bold;
 }
 
-.btn{
-font-size: 1.3em;
-    --bs-btn-padding-y:0.1em;
-    margin-top:0.5em;
+.draw-meta{
+    text-align: end;
+    font-weight: bold;
+    margin-right:2.9em;
+    margin-bottom:2em;
 }
 
-.add-btn{
+.btn{
+    font-size: 1.3em;
+    --bs-btn-padding-y:0.1em;
+    margin-top:0.5em;
 }
 
 

@@ -26,7 +26,7 @@ News
     <h5>{{ row['title'] }}</h5>
         <div class="subtitle"> {{row ['subtitle']}}</div>
         <p class="news-text"> {{row ['content'] | replace("\n", "<br>") | safe}}  </p>
-        <div class="news-meta">Posted by {{ row['name'] }} on {{ row['newsdate'] | news_date }}</div>
+        <div class="news-meta">Posted by {{ row['firstname'] }} on {{ row['newsdate'] | news_date }}</div>
 
         {% if session and session['authorisation'] == 0%}
         <div class="news-meta">

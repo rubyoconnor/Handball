@@ -1,0 +1,112 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Results
+{% endblock %}
+
+{% block banner %}
+{% endblock %}
+
+
+{% block content %}
+<img class="shooter" src="static/images/small_banner.png">
+<p class="htp-banner">RESULTS</p>
+
+
+<h3 class="draw-title">Women's league Results</h3>
+
+
+{% if session and session['authorisation'] == 0 %}
+<div class="p-4 mt-2 text-end">
+<a class="btn btn-primary" href="{{ url_for('editdraw_page', id=0, task='add') }}">Add Result</a>
+</div>
+
+{% for row in results %}
+<table>
+<tr>
+<th>Date</th>
+<th>Team 1</th>
+<th>Team 1 Score</th>
+<th>Team 2</th>
+<th>Team 2 Score</th>
+<th>Winner</th>
+</tr>
+
+<tr>
+<td>{{row['gamedate']}}</td>
+<td>{{row['teamone']}}</td>
+<td>{{row['teamonescore']}}</td>
+<td>{{row['teamtwo']}}</td>
+<td>{{row['teamtwoscore']}}</td>
+<td>{{row['winner']}}</td>
+
+</tr>
+ </table>
+
+<div class="draw-meta">
+         <a class="btn-primary btn" href="{{ url_for('editdraw_page', id=row['program_id'], task='update') }}">Update</a>
+         <a class="btn btn-primary" href="{{ url_for('editdraw_page', id=row['program_id'], task='delete') }}">Delete</a>
+</div>
+
+
+<!-- Add more rows for additional games -->
+
+
+{% endfor %}
+
+{% endif %}
+
+
+{% if session and session['authorisation'] != 0%}
+<table>
+<tr>
+<th>Date</th>
+<th>Team 1</th>
+<th>Team 1 Score</th>
+<th>Team 2</th>
+<th>Team 2 Score</th>
+<th>Winner</th>
+
+</tr>
+{% for row in results %}
+<tr>
+<td>{{row['gamedate']}}</td>
+<td>{{row['teamone']}}</td>
+<td>{{row['teamonescore']}}</td>
+<td>{{row['teamtwo']}}</td>
+<td>{{row['teamtwoscore']}}</td>
+<td>{{row['winner']}}</td>
+
+</tr>
+
+{% endfor %}
+        </table>
+{% endif %}
+
+
+{% if 'member_id' not in session %}
+<table>
+<tr>
+<th>Date</th>
+<th>Team 1</th>
+<th>Team 1 Score</th>
+<th>Team 2</th>
+<th>Team 2 Score</th>
+<th>Winner</th>
+
+</tr>
+
+{% for row in results %}
+<tr>
+<td>{{row['gamedate']}}</td>
+<td>{{row['teamone']}}</td>
+<td>{{row['teamonescore']}}</td>
+<td>{{row['teamtwo']}}</td>
+<td>{{row['teamtwoscore']}}</td>
+<td>{{row['winner']}}</td>
+</tr>
+{% endfor %}
+</table>
+{% endif %}
+
+{% endblock %}
