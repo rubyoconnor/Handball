@@ -9,9 +9,8 @@ Draw
 
 
 {% block content %}
-<div class="container-lg py-sm-5 py-1">
-  <div class="news p-4 my-4">
-      <h2>Please update/edit the draw</h2>
+  <div class="p-4 my-4">
+      <h3 class="draw-result">Please update/edit the draw</h3>
 
  <form action="{{url_for('editdraw_page', id=id, task=task)}}" method="POST">
 
@@ -49,7 +48,7 @@ Draw
 
  </form>
   </div>
-</div>
+
 </table>
 <div class="text-end">
             <button type="reset" class="btn btn-primary">Reset</button>

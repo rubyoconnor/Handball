@@ -13,12 +13,12 @@ Results
 <p class="htp-banner">RESULTS</p>
 
 
-<h3 class="draw-title">Women's league Results</h3>
+<h3 class="draw-result">Women's league Results</h3>
 
 
 {% if session and session['authorisation'] == 0 %}
 <div class="p-4 mt-2 text-end">
-<a class="btn btn-primary" href="{{ url_for('editdraw_page', id=0, task='add') }}">Add Result</a>
+<a class="btn btn-primary" href="{{ url_for('editresults_page', id=0, task='add') }}">Add Result</a>
 </div>
 
 {% for row in results %}
@@ -44,8 +44,8 @@ Results
  </table>
 
 <div class="draw-meta">
-         <a class="btn-primary btn" href="{{ url_for('editdraw_page', id=row['program_id'], task='update') }}">Update</a>
-         <a class="btn btn-primary" href="{{ url_for('editdraw_page', id=row['program_id'], task='delete') }}">Delete</a>
+         <a class="btn-primary btn" href="{{ url_for('editresults_page', id=row['result_id'], task='update') }}">Update</a>
+         <a class="btn btn-primary" href="{{ url_for('editresults_page', id=row['result_id'], task='delete') }}">Delete</a>
 </div>
 
 

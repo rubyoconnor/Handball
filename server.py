@@ -268,6 +268,81 @@ def editdraw_page():
            message = "Unrecognised task coming from news form submission"
            return render_template('error.html', message=message)
 
+@app.route('/editresults_page', methods =['GET', 'POST'])
+def editresults_page():
+    # collect data from the web address
+    # this happens regardless of GET or POST
+    data = request.args
+    required_keys = ['id', 'task']
+    # check that we have the required keys
+    # run error page if a problem
+    for k in required_keys:
+        if k not in data.keys():
+            message = "Do not know what to do with create read update on news (key not present)"
+            return render_template('error.html', message=message)
+
+            # yes, we have an id and a task key
+            # if I have arrived directly from the page
+    if request.method == "GET":
+        # is the task to delete ?
+        if data['task'] == 'delete':
+            sql = "delete from results where result_id = ?"
+            values_tuple = (data['id'],)
+            result = run_commit_query(sql, values_tuple, db_path)
+            return redirect(url_for('results'))
+
+        elif data['task'] == 'update':
+            sql = """ select gamedate, teamone, teamonescore, teamtwo, teamtwoscore, winner from results where result_id=?"""
+            values_tuple = (data['id'],)
+            result = run_search_query_tuples(sql, values_tuple, db_path, True)
+            result = result[0]
+            return render_template("editresults_page.html",
+                                    **result,
+                                    id = data['id'],
+                                    task = data['task'],)
+
+        elif data['task'] == 'add':
+            # dummy data for testing
+            temp = {'teamone': 'teamone', 'teamonescore': 'teamonescore', 'teamtwo': 'teamtwo','teamtwoscore': 'teamtwoscore', 'winner': 'winner'}
+            return render_template("editresults_page.html",
+                                    id=0,
+                                    task=data['task'],
+                                    teamone=temp['teamone'],
+                                    teamonescore=temp['teamonescore'],
+                                    teamtwo=temp['teamtwo'],
+                                    teamtwoscore=temp['teamtwoscore'],
+                                    winner=temp['winner'],
+                                   )
+        else:
+            message = "Unrecognised task coming from news page"
+            return render_template("error.html", message=message)
+    elif request.method == "POST":
+       # collected form information
+       f = request.form
+       print(f)
+       if data['task'] =='add':
+           # add the new draw entry to the database
+           sql = """insert into results(gamedate, teamone, teamonescore, teamtwo, teamtwoscore, winner)
+                                values(?,?,?,?,?,?)"""
+           values_tuple = (f['gamedate'], f['teamone'],f['teamonescore'],f['teamtwo'], f['teamtwoscore'], f['winner'])
+           result = run_commit_query(sql, values_tuple, db_path)
+           # this will redirect to draw page to see the newly added draw item
+           return redirect(url_for('results'))
+
+       elif data['task'] == 'update':
+           # we are updating so 'rewrite' all the data even if
+           sql = """update results set gamedate=?, teamone=?, teamonescore=?, teamtwo=?, teamtwoscore=?, winner=? where result_id=? 
+               """
+           values_tuple = (f['gamedate'], f['teamone'],f['teamonescore'], f['teamtwo'], f['teamtwoscore'], f['winner'], data['id'])
+           result = run_commit_query(sql, values_tuple, db_path)
+           # collect the data from the form and update the database at the sent id
+           return redirect(url_for('results'))
+
+       else:
+           # let's put in an error catch
+           message = "Unrecognised task coming from news form submission"
+           return render_template('error.html', message=message)
+
 
 
 app.run(debug=True)
