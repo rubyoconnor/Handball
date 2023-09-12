@@ -7,10 +7,8 @@ News
 {% block banner %}
 {% endblock %}
 
-
 {% block content %}
 <div class="container-lg py-sm-5 py-1">
-
   <div class="news p-4 my-4">
       <h2>Please enter/update your news item</h2>
     <form action="{{url_for('news_formpage', id=id, task=task)}}" method="POST">

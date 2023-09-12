@@ -12,9 +12,7 @@ Results
 <img class="shooter" src="static/images/small_banner.png">
 <p class="htp-banner">RESULTS</p>
 
-
 <h3 class="draw-result">Women's league Results</h3>
-
 
 {% if session and session['authorisation'] == 0 %}
 <div class="p-4 mt-2 text-end">
@@ -39,7 +37,6 @@ Results
 <td>{{row['teamtwo']}}</td>
 <td>{{row['teamtwoscore']}}</td>
 <td>{{row['winner']}}</td>
-
 </tr>
  </table>
 
@@ -48,9 +45,7 @@ Results
          <a class="btn btn-primary" href="{{ url_for('editresults_page', id=row['result_id'], task='delete') }}">Delete</a>
 </div>
 
-
 <!-- Add more rows for additional games -->
-
 
 {% endfor %}
 

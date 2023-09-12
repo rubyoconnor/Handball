@@ -1,11 +1,15 @@
 {% extends "layout.html" %}
 
+
 {% block title %}
 Sign up
 {% endblock %}
 
+
 {% block banner %}
 {% endblock %}
+
+
 
 
 {% block content %}
@@ -15,35 +19,39 @@ Sign up to see all the updates you need for your team.
 </p>
 </div>
 
+
 <div class="container-lg p-3">
-    <form action="{{url_for('signup')}}" method ="POST">
-        <div>
-            <label for="firstname" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="" value="{{firstname}}" required>
-        </div>
-
-        <div>
-            <label for="secondname" class="form-label">Second Name</label>
-            <input type="text" class="form-control" id="secondname" name="secondname" placeholder="" value="{{secondname}}" required>
-        </div>
-        <div>
-            <label for="email" class="form-label">Email</label>
-            <input type="email" class="form-control" id="email" name="email" placeholder="" value="{{email}}" required>
-        </div>
-        <div>
-            <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="" value="{{password}}" required>
-        </div>
-        <div>
-            <label for="authorisation" class="form-label">Authorisation No.</label>
-            <input id="authorisation" class="form-control" name="authorisation" rows="5">{{authorisation}}</input>
-        </div>
-
-        <div class="text-end">
-          <button type="reset" class="btn btn-primary">Reset</button>
-          <button  type="submit" class="btn btn-primary" >Submit</button>
-        </div>
-    </form>
+<form action="{{url_for('signup')}}" method ="POST">
+<div>
+<label for="firstname" class="form-label">First Name</label>
+<input type="text" class="form-control" id="firstname" name="firstname" placeholder="" value="{{firstname}}" required>
 </div>
+
+
+<div>
+<label for="secondname" class="form-label">Second Name</label>
+<input type="text" class="form-control" id="secondname" name="secondname" placeholder="" value="{{secondname}}" required>
+</div>
+<div>
+<label for="email" class="form-label">Email</label>
+<input type="email" class="form-control" id="email" name="email" placeholder="" value="{{email}}" required>
+</div>
+<div>
+<label for="password" class="form-label">Password</label>
+<input type="password" class="form-control" id="password" name="password" placeholder="" value="{{password}}" required>
+</div>
+<div>
+<label for="authorisation" class="form-label">Authorisation No.</label>
+<input id="authorisation" class="form-control" name="authorisation" rows="5">{{authorisation}}</input>
+</div>
+
+
+<div class="text-end">
+<button type="reset" class="btn btn-primary">Reset</button>
+<button type="submit" class="btn btn-primary" >Submit</button>
+</div>
+</form>
+</div>
+
 
 {% endblock %}

@@ -1,0 +1,37 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Test
+{% endblock %}
+
+{% block banner %}
+{% endblock %}
+
+
+{% block content %}
+<img class="shooter" src="static/images/small_banner.png">
+<p class="htp-banner">TEST</p>
+<form action="{{url_for('test', id=id, task=task)}}" method="POST"></form>
+<select name= colours method="GET" action="/">
+    {% for colour in colours %}
+    <option value= "{{colour}}" SELECTED>{{colour}}</option>"
+    {% endfor %}
+</select>
+       <button  type="submit" class="btn btn-primary" >Submit</button>
+</form>
+
+
+{% if 'colour' == 'blue' %}
+<table>
+    <tr>
+    <th>Date</th>
+    <th>Team 1</th>
+    <th>Team 1 Score</th>
+    <th>Team 2</th>
+    <th>Team 2 Score</th>
+    <th>Winner</th>
+    </tr>
+    </table>
+
+{% endif %}
+{% endblock %}

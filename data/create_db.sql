@@ -1,18 +1,16 @@
 /* database creation script*/
-
 drop table if exists news;
 drop table if exists member;
-drop table if exists program;
+drop table if exists draw;
 drop table if exists results;
 
+
 /* create tables*/
-
-
 create table member(
     member_id integer primary key autoincrement not null,
     firstname text not null,
     secondname text not null,
-    email text not null unique,
+    username text not null unique,
     password text not null,
     authorisation integer not null
 );
@@ -27,8 +25,8 @@ create table news(
     foreign key(member_id) references member(member_id)
 );
 
-create table program(
-    program_id integer primary key autoincrement not null,
+create table draw(
+    draw_id integer primary key autoincrement not null,
     gamedate date not null,
     teamone text not null,
     teamtwo text not null,
@@ -37,23 +35,26 @@ create table program(
 );
 
 create table results(
-    result_id integer primary key autoincrement not null,
-    gamedate date not null,
-    teamone text not null,
-    teamtwo text not null,
-    teamonescore integer not null,
-    teamtwoscore integer not null,
-    winner text not null
+result_id integer primary key autoincrement not null,
+gamedate date not null,
+teamone text not null,
+teamtwo text not null,
+teamonescore integer not null,
+teamtwoscore integer not null,
+winner text not null
 );
 
-insert into member(firstname, secondname, email, password, authorisation)
-values('Paul', 'Smith', 'paul@nzhandball.com', 'temp', 0 );
-insert into member(firstname, secondname, email, password, authorisation)
-values('Jess', 'Door','jess@nzhandball.com', 'temp', 0 );
-insert into member(firstname, secondname, email, password, authorisation)
-values('Joyce', 'Chan', 'joyce@marsden.com', 'temp', 1 );
-insert into member(firstname, secondname, email, password, authorisation)
-values('Amelia','Rodd', 'amelia@qmc.com', 'temp', 1 );
+
+
+
+insert into member(firstname, secondname, username, password, authorisation)
+values('Paul', 'Smith', 'paulsmith','temp', 0 );
+insert into member(firstname, secondname, username, password, authorisation)
+values('Jess', 'Door','JessDoor', 'temp', 0 );
+insert into member(firstname, secondname, username, password, authorisation)
+values('Joyce', 'Chan', 'JoyceChan', 'temp', 1 );
+insert into member(firstname, secondname, username, password, authorisation)
+values('Amelia','Rodd','AmeliaRodd', 'temp', 1 );
 
 insert into news(title, subtitle, content, newsdate, member_id)
 values('Amazing news for the U19 NZ Men''s team',
@@ -66,14 +67,17 @@ values('Amazing news for the U19 NZ Men''s team',
 
 insert into news(title, subtitle, content, newsdate, member_id)
 values('NZ Beach Handball Womens Team Selection 2023',
-      'Following is the NZ Beach Handball team that will be representing NZ in the Oceania Championships',
+      'Following is the NZ Beach Handball team that will be representing NZ in the Oceania Championships:',
       'Lily Smith' || char(10) ||
+      'Paula Gold' || char(10) ||
+      'Tina Walker ' || char(10) ||
+      'Milly Thumb' || char(10) ||
       'We wish this team good luck as they head to the Gold Coast, Australia to compete in the Oceania Championships.',
       '2023-06-15 11:23:00',
       (select member_id from member where firstname='Jess')
       );
 
-insert into program(gamedate, teamone, teamtwo, location, gametime)
+insert into draw(gamedate, teamone, teamtwo, location, gametime)
 values('2023-08-05',
       'Vic Uni',
       'Spartans',
@@ -81,15 +85,7 @@ values('2023-08-05',
        '16:00'
        );
 
-insert into program(gamedate, teamone, teamtwo, location, gametime)
-values('2023-08-05',
-      'Hunters',
-      'Bye',
-      'N/A',
-       'N/A'
-       );
-
-insert into program(gamedate, teamone, teamtwo, location, gametime)
+insert into draw(gamedate, teamone, teamtwo, location, gametime)
 values('2023-08-12',
       'Hunters',
       'Spartans',
@@ -97,7 +93,18 @@ values('2023-08-12',
        '15:00'
        );
 
-insert into program(gamedate, teamone, teamtwo, location, gametime)
+
+insert into draw(gamedate, teamone, teamtwo, location, gametime)
+values('2023-08-05',
+      'Hunters',
+      'Bye',
+      'N/A',
+       'N/A'
+       );
+
+
+
+insert into draw(gamedate, teamone, teamtwo, location, gametime)
 values('2023-08-12',
       'Vic Uni',
       'Bye',
@@ -105,7 +112,7 @@ values('2023-08-12',
        'N/A'
        );
 
-insert into program(gamedate, teamone, teamtwo, location, gametime)
+insert into draw(gamedate, teamone, teamtwo, location, gametime)
 values('2023-08-19',
       'Vic Uni',
       'Hunters',
@@ -113,35 +120,28 @@ values('2023-08-19',
        '15:00'
        );
 
-insert into program(gamedate, teamone, teamtwo, location, gametime)
+insert into draw(gamedate, teamone, teamtwo, location, gametime)
 values('2023-08-19',
       'Spartans',
       'Bye',
       'N/A',
        'N/A'
-       );
-
-
-insert into results(gamedate, teamone, teamtwo, teamonescore, teamtwoscore, winner)
-values('2023-08-05',
-      'Vic Uni',
-      'Spartans',
-      50,
-       30,
-       'Vic uni'
        );
 
 insert into results(gamedate, teamone, teamtwo, teamonescore, teamtwoscore, winner )
-values('2023-08-12',
-      'Hunters',
-      'Spartans',
+values('2023-08-19',
+       'Vic Uni',
+       'Spartans',
+      50,
+       37,
+       'Vic Uni'
+       );
+
+insert into results(gamedate, teamone, teamtwo, teamonescore, teamtwoscore, winner )
+values('2023-08-05',
+       'Hunters',
+       'Spartans',
       22,
        15,
        'Hunters'
        );
-
-
-
-
-
-

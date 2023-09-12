@@ -1,0 +1,52 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Member
+{% endblock %}
+
+{% block banner %}
+{% endblock %}
+
+
+{% block content %}
+<img class="shooter" src="static/images/small_banner.png">
+<p class="htp-banner">MEMBER</p>
+
+<h3 class="draw-result">Member Table</h3>
+
+
+<div class="p-4 mt-2 text-end">
+<a class="btn btn-primary" href="{{ url_for('updatemember', id=0, task='add') }}">Add Member</a>
+</div>
+
+    {% for row in member %}
+<table>
+<tr>
+<th>First Name</th>
+<th>Last Name</th>
+<th>Password</th>
+<th>Username</th>
+<th>Authorisation No.</th>
+</tr>
+<tr>
+<td>{{row['firstname']}}</td>
+<td>{{row['secondname']}}</td>
+<td>{{row['password']}}</td>
+    <td>{{row['username']}}</td>
+<td>{{row['authorisation']}}</td>
+</tr>
+ </table>
+
+
+
+<div class="draw-meta">
+         <a class="btn-primary btn" href="{{ url_for('updatemember', id=row['member_id'], task='update') }}">Update</a>
+         <a class="btn btn-primary" href="{{ url_for('updatemember', id=row['member_id'], task='delete') }}">Delete</a>
+</div>
+
+        {% endfor %}
+
+<!-- Add more rows for additional games -->
+
+
+{% endblock %}

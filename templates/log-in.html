@@ -1,10 +1,8 @@
 {% extends "layout.html" %}
 
-
 {% block title %}
 login
 {% endblock %}
-
 
 {% block banner %}
 {% endblock %}
@@ -16,8 +14,8 @@ login
         <div class="alert">{{error}}</div>
         <form action="{{url_for('login')}}" method="POST">
             <div>
-                <label for="email" class="form-label">PLease enter your email</label>
-                <input type="email" class="form-control" id="email" name="email" placeholder="" value="{{email}}" required>
+                <label for="username" class="form-label">PLease enter your username</label>
+                <input type="username" class="form-control" id="username" name="username" placeholder="" value="{{username}}" required>
             </div>
             <div>
                 <label for="password" class="form-label">Please enter your password</label>
