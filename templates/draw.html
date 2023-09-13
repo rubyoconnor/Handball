@@ -8,84 +8,96 @@ Draw
 {% endblock %}
 
 {% block content %}
+<!-- banner -->
 <img class="shooter" src="static/images/small_banner.png">
 <p class="htp-banner">DRAW</p>
 
+<!-- subheading for the page  -->
 <h3 class="draw-result">Women's league Draw</h3>
 
+<!-- if user is logged in and authorisation is 0  -->
 {% if session and session['authorisation'] == 0 %}
 <div class="p-4 mt-2 text-end">
-<a class="btn btn-primary" href="{{ url_for('editdraw_page', id=0, task='add') }}">Add Results</a>
+    <!-- button for add to draw -->
+    <a class="btn btn-primary" href="{{ url_for('editdraw_page', id=0, task='add') }}">Add to Draw</a>
 </div>
 
-
-
+<!-- calling from the server -->
 {% for row in draw %}
 <table>
-<tr>
-<th>Date</th>
-<th>Opponent 1</th>
-<th>Opponent 2</th>
-<th>Location</th>
-<th>Time</th>
-</tr>
+    <tr>
+        <th>Date</th>
+        <th>Opponent 1</th>
+        <th>Opponent 2</th>
+        <th>Location</th>
+        <th>Time</th>
+    </tr>
 
-<tr>
-<td>{{row['gamedate']}}</td>
-<td>{{row['teamone']}}</td>
-<td>{{row['teamtwo']}}</td>
-<td>{{row['location']}}</td>
-<td>{{row['gametime']}}</td>
-</tr>
+    <tr>
+    <!-- info from sql draw table being printed  -->
+        <td>{{row['gamedate']}}</td>
+        <td>{{row['teamone']}}</td>
+        <td>{{row['teamtwo']}}</td>
+        <td>{{row['location']}}</td>
+        <td>{{row['gametime']}}</td>
+    </tr>
 </table>
-    <div class="draw-meta">
+
+<div class="draw-meta">
+        <!-- update and delete buttons  -->
     <a class="btn-primary btn" href="{{ url_for('editdraw_page', id=row['draw_id'], task='update') }}">Update</a>
     <a class="btn btn-primary" href="{{ url_for('editdraw_page', id=row['draw_id'], task='delete') }}">Delete</a>
-    </div>
+</div>
 
 {% endfor %}
-
 {% endif %}
 
+<!-- if user is logged in and authorisation is not 0  -->
 {% if session and session['authorisation'] != 0%}
 <table>
-<tr>
-<th>Date</th>
-<th>Opponent 1</th>
-<th>Opponent 2</th>
-<th>Location</th>
-<th>Time</th>
-</tr>
-{% for row in draw %}
-<tr>
-<td>{{row['gamedate']}}</td>
-<td>{{row['teamone']}}</td>
-<td>{{row['teamtwo']}}</td>
-<td>{{row['location']}}</td>
-<td>{{row['gametime']}}</td>
-</tr>
-{% endfor %}
+    <tr>
+        <th>Date</th>
+        <th>Opponent 1</th>
+        <th>Opponent 2</th>
+        <th>Location</th>
+        <th>Time</th>
+    </tr>
+
+    {% for row in draw %}
+    <tr>
+        <td>{{row['gamedate']}}</td>
+        <td>{{row['teamone']}}</td>
+        <td>{{row['teamtwo']}}</td>
+        <td>{{row['location']}}</td>
+        <td>{{row['gametime']}}</td>
+    </tr>
+
+    {% endfor %}
+
 </table>
 {% endif %}
 
+<!-- if user is not logged in -->
 {% if 'member_id' not in session %}
 <table>
-<tr>
-<th>Date</th>
-<th>Opponent 1</th>
-<th>Opponent 2</th>
-<th>Location</th>
-<th>Time</th>
-</tr>
-{% for row in draw %}
-<tr>
-<td>{{row['gamedate']}}</td>
-<td>{{row['teamone']}}</td>
-<td>{{row['teamtwo']}}</td>
-<td>{{row['location']}}</td>
-<td>{{row['gametime']}}</td>
-</tr>
-{% endfor %}
+    <tr>
+        <!-- column headings  -->
+        <th>Date</th>
+        <th>Opponent 1</th>
+        <th>Opponent 2</th>
+        <th>Location</th>
+        <th>Time</th>
+    </tr>
+
+    {% for row in draw %}
+    <tr>
+        <td>{{row['gamedate']}}</td>
+        <td>{{row['teamone']}}</td>
+        <td>{{row['teamtwo']}}</td>
+        <td>{{row['location']}}</td>
+        <td>{{row['gametime']}}</td>
+    </tr>
+    {% endfor %}
 </table>
 {% endif %}
 

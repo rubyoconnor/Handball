@@ -1,44 +1,42 @@
-
 {% extends "layout.html" %}
-
 
 {% block title %}
 News
 {% endblock %}
 
-
 {% block banner %}
 {% endblock %}
-
 
 {% block content %}
 <img class="shooter" src="static/images/small_banner.png" alt="small banner picture">
 <p class="htp-banner">NEWS</p>
 
 <div class="container-lg">
+     <!-- if logged in and authorisation = 0 -->
     {% if session and session['authorisation'] == 0 %}
     <div class="news p-4 mt-2 text-end">
+         <!-- button for adding news -->
         <a class="btn btn-primary add-btn" href="{{ url_for('news_formpage', id=0, task='add') }}">Add News</a>
     </div>
     {% endif %}
 
+     <!-- printing the news posts -->
     {% for row in news %}
     <div class="news p-2 mb-4">
-    <h5>{{ row['title'] }}</h5>
+        <h5>{{ row['title'] }}</h5>
         <div class="subtitle"> {{row ['subtitle']}}</div>
         <p class="news-text"> {{row ['content'] | replace("\n", "<br>") | safe}}  </p>
         <div class="news-meta">Posted by {{ row['firstname'] }} on {{ row['newsdate'] | news_date }}</div>
 
+         <!-- if user logged in and authorisation = 0 -->
         {% if session and session['authorisation'] == 0%}
         <div class="news-meta">
+             <!-- update and delete button -->
             <a class="btn btn-primary" href="{{ url_for('news_formpage', id=row['news_id'], task='update') }}">Update</a>
             <a class="btn btn-primary" href="{{ url_for('news_formpage', id=row['news_id'], task='delete') }}">Delete</a>
         </div>
         {% endif %}
     </div>
     {% endfor %}
-
-
-
 </div>
 {% endblock %}

@@ -10,14 +10,17 @@ login
 {% block content %}
 <div class="container-lg py-sm-5 py-1">
     <div class="news p-4 my-4">
-        <h2>Please enter your credentials</h2>
+        <h2>Please Log in</h2>
         <div class="alert">{{error}}</div>
+        <!-- begin form for logging in  -->
         <form action="{{url_for('login')}}" method="POST">
             <div>
+                <!-- enter username -->
                 <label for="username" class="form-label">PLease enter your username</label>
                 <input type="username" class="form-control" id="username" name="username" placeholder="" value="{{username}}" required>
             </div>
             <div>
+                 <!-- enter password -->
                 <label for="password" class="form-label">Please enter your password</label>
                 <input type="password" class="form-control" id="password" name="password" placeholder="" value="{{password}}" required>
             </div>

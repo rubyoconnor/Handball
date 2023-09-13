@@ -7,54 +7,59 @@ Draw
 {% block banner %}
 {% endblock %}
 
-
 {% block content %}
-  <div class="p-4 my-4">
-      <h3 class="draw-result">Please update/edit the draw</h3>
+<div class="p-4 my-4">
 
- <form action="{{url_for('editdraw_page', id=id, task=task)}}" method="POST">
+    <!-- subheading for the editdraw_page  -->
+    <h3 class="draw-result">Please update/edit the draw</h3>
 
-<table>
-<tr>
-<th>Date</th>
-<th>Opponent 1</th>
-<th>Opponent 2</th>
-<th>Location</th>
-<th>Time</th>
-</tr>
-</thead>
+    <!-- beginning a form for updating/adding to the draw  -->
+    <form action="{{url_for('editdraw_page', id=id, task=task)}}" method="POST">
 
-<tr>
-<td><div>
-    <input type="text" class="form-control" id="gamedate" name="gamedate" placeholder="" value="{{gamedate}}" required>
-</div></td>
+        <table>
+            <tr>
+                <!-- column headings  -->
+                <th>Date</th>
+                <th>Opponent 1</th>
+                <th>Opponent 2</th>
+                <th>Location</th>
+                <th>Time</th>
+            </tr>
+            </thead>
 
-<td><div>
-    <input type="text" class="form-control" id="teamone" name="teamone" placeholder="" value="{{teamone}}" required>
-</div></td>
+            <tr>
+                <td><div>
+                     <!-- Game Date   -->
+                    <input type="date" id="start" name="gamedate" value="2023-09-13" min="" max="" />
+                </div></td>
 
-<td><div>
-    <input type="text" class="form-control" id="teamtwo" name="teamtwo" placeholder="" value="{{teamtwo}}" required>
-</div></td>
+                <td><div>
+                     <!-- Team One  -->
+                    <input type="text" class="form-control" id="teamone" name="teamone" placeholder="" value="{{teamone}}" required>
+                </div></td>
 
-<td><div>
-    <input type="text" class="form-control" id="location" name="location" placeholder="" value="{{location}}" required>
-</div></td>
+                <td><div>
+                     <!-- Team Two  -->
+                    <input type="text" class="form-control" id="teamtwo" name="teamtwo" placeholder="" value="{{teamtwo}}" required>
+                </div></td>
 
-<td><div>
-    <input type="text" class="form-control" id="gametime" name="gametime" placeholder="" value="{{gametime}}" required>
-</div></td>
-</tr>
+                <td><div>
+                     <!-- Location  -->
+                    <input type="text" class="form-control" id="location" name="location" placeholder="" value="{{location}}" required>
+                </div></td>
 
- </form>
-  </div>
-
-</table>
-<div class="text-end">
+                <td><div>
+                     <!-- Game Time  -->
+                    <input type="time" id="gametime" name="gametime" min="" max="" required />
+                </div></td>
+            </tr>
+        </table>
+        <div class="text-end">
+             <!-- Reset and Submit buttons  -->
             <button type="reset" class="btn btn-primary">Reset</button>
             <button  type="submit" class="btn btn-primary" >Submit</button>
         </div>
+    </form>
 </div>
-
 
 {% endblock %}

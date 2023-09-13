@@ -7,55 +7,53 @@ Member edit
 {% block banner %}
 {% endblock %}
 
-
 {% block content %}
+<div class="container-lg p-3">
+     <!-- little heading -->
+    <h2 class="ms-1">Please enter your details</h2>
 
-  <div class=" p-4 my-4">
-      <h3 class="draw-result">Please update/edit the results</h3>
-
- <form action="{{url_for('updatemember', id=id, task=task)}}" method="POST">
-
-<table>
-    <tr>
-    <th>Firstname</th>
-    <th>Secondname</th>
-    <th>Password</th>
-    <th>Username</th>
-    <th>Authorisation</th>
-    </tr>
-    </thead>
-
-    <tr>
-    <td><div>
-        <input type="text" class="form-control" id="firstname" name="firstname" placeholder="" value="{{firstname}}" required>
-    </div></td>
-
-    <td><div>
-        <input type="text" class="form-control" id="secondname" name="secondname" placeholder="" value="{{secondname}}" required>
-    </div></td>
-
-    <td><div>
-        <input type="text" class="form-control" id="password" name="password" placeholder="" value="{{password}}" required>
-    </div></td>
-
-        <td><div>
-        <input type="text" class="form-control" id="username" name="username" placeholder="" value="{{username}}" required>
-    </div></td>
-
-    <td><div>
-        <input type="text" class="form-control" id="authorisation" name="authorisation" placeholder="" value="{{authorisation}}" required>
-    </div></td>
-
-    </tr>
-
-    </form>
-      </div>
-</table>
-<div class="text-end">
-            <button type="reset" class="btn btn-primary">Reset</button>
-            <button  type="submit" class="btn btn-primary" >Submit</button>
+     <!-- form  -->
+    <form action="{{url_for('updatemember', id=id, task=task)}}" method="POST">
+         <!-- enter firstname -->
+        <div>
+            <label for="firstname" class="form-label">First Name</label>
+            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="" value="{{firstname}}" required>
         </div>
-</div>
 
+         <!-- enter secondname -->
+        <div>
+            <label for="secondname" class="form-label">Second Name</label>
+            <input type="text" class="form-control" id="secondname" name="secondname" placeholder="" value="{{secondname}}" required>
+        </div>
+
+         <!-- enter username -->
+        <div>
+            <label for="username" class="form-label">Username</label>
+            <input type="username" class="form-control" id="username" name="username" placeholder="" value="{{username}}" required>
+        </div>
+
+         <!-- enter password -->
+        <div>
+            <label for="password" class="form-label">Password</label>
+            <input type="password" class="form-control" id="password" name="password" placeholder="" value="{{password}}" required>
+        </div>
+
+         <!-- enter authorisation -->
+        <div>
+            <label for="authorisation">Choose your authorisation number (1 is for normal users and 0 is for NZ Handball workers):</label>
+             <!-- dropdown menu -->
+            <select name="authorisation" id="authorisation">
+                <option value="0">0</option>
+                <option value="1">1</option>
+            </select>
+        </div>
+
+         <!-- submit button -->
+        <div class="text-end">
+            <button type="reset" class="btn btn-primary">Reset</button>
+            <button type="submit" class="btn btn-primary">Submit</button>
+        </div>
+    </form>
+</div>
 
 {% endblock %}

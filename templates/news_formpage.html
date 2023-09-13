@@ -9,26 +9,37 @@ News
 
 {% block content %}
 <div class="container-lg py-sm-5 py-1">
-  <div class="news p-4 my-4">
-      <h2>Please enter/update your news item</h2>
-    <form action="{{url_for('news_formpage', id=id, task=task)}}" method="POST">
-        <div>
-            <label for="title" class="form-label">Title</label>
-            <input type="text" class="form-control" id="title" name="title" placeholder="" value="{{title}}" required>
-        </div>
-        <div>
-            <label for="subtitle" class="form-label">Subtitle</label>
-            <input type="text" class="form-control" id="subtitle" name="subtitle" placeholder="" value="{{subtitle}}" required>
-        </div>
-        <div>
-             <label for="content" class="form-label">News content</label>
-            <textarea class="form-control" id="content" name="content" rows="7" required> {{content}} </textarea>
-        </div>
-        <div class="text-end">
-            <button type="reset" class="btn btn-primary">Reset</button>
-            <button  type="submit" class="btn btn-primary" >Submit</button>
-        </div>
-    </form>
-  </div>
+    <div class="news p-4 my-4">
+         <!-- subheading for page -->
+        <h2>Please enter/update your news item</h2>
+
+         <!-- form  -->
+        <form action="{{url_for('news_formpage', id=id, task=task)}}" method="POST">
+
+            <!-- enter title -->
+            <div>
+                <label for="title" class="form-label">Title</label>
+                <input type="text" class="form-control" id="title" name="title" placeholder="" value="{{title}}" required>
+            </div>
+
+             <!-- enter subtitle -->
+            <div>
+                <label for="subtitle" class="form-label">Subtitle</label>
+                <input type="text" class="form-control" id="subtitle" name="subtitle" placeholder="" value="{{subtitle}}" required>
+            </div>
+
+             <!-- enter content -->
+            <div>
+                <label for="content" class="form-label">News content</label>
+                <textarea class="form-control" id="content" name="content" rows="7" required> {{content}} </textarea>
+            </div>
+
+             <!-- submit button -->
+            <div class="text-end">
+                <button type="reset" class="btn btn-primary">Reset</button>
+                <button  type="submit" class="btn btn-primary" >Submit</button>
+            </div>
+        </form>
+    </div>
 </div>
 {% endblock %}

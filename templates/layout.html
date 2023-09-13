@@ -51,28 +51,36 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.j
           <li class="nav-item">
           <a class="nav-link" href="{{ url_for('results') }}">Results</a>
         </li>
+          <!-- if user is logged in and authorisation is 0 then member page will be in nav bar-->
+          {% if session and session['authorisation'] == 0 %}
             <li class="nav-item">
-          <a class="nav-link" href="{{ url_for('member') }}">member</a>
+          <a class="nav-link" href="{{ url_for('member') }}">Members</a>
         </li>
+          {% endif %}
       </ul>
 
 <div class="ms-auto">
+    <!-- if logged in then logout button will be in top right corner-->
     {% if session %}
     <a class="nav-link btn btn-outline" href="{{ url_for('logout') }}">Log out</a>
+    <!-- if anything other than logged in then sign up and login in top right corner -->
     {% else %}
-    <a class="nav-link btn btn-outline" href="{{ url_for('signup') }}">Sign up</a>
+    <a class="nav-link btn btn-outline" href="{{ url_for('member') }}">Sign up</a>
     <a class="nav-link btn btn-outline" href="{{ url_for('login') }}">Log in</a></div>
     {% endif %}
     </div>
 
 </nav>
 
+        <!-- if logged in: name, authorisation and member_id will print on homepage-->
     {% if session %}
         <div class="session"> {{ session['firstname'] }} is logged in<br>
         authorisation is {{ session['authorisation'] }}<br>
         member_id is {{ session['member_id'] }}
         </div>
     {% endif %}
+
+
 
     <div class="grad-container">
     <img class="nzhandball" src="{% block banner %}{% endblock %}" alt="">

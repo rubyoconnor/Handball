@@ -7,61 +7,57 @@ Results
 {% block banner %}
 {% endblock %}
 
-
 {% block content %}
+<div class=" p-4 my-4">
+    <! –– subheading for the page-->
+    <h3 class="draw-result">Please update/edit the results</h3>
 
-  <div class=" p-4 my-4">
-      <h3 class="draw-result">Please update/edit the results</h3>
+    <form action="{{url_for('editresults_page', id=id, task=task)}}" method="POST">
+        <table>
+            <tr>
+                <th>Date</th>
+                <th>Team 1</th>
+                <th>Team 1 Score</th>
+                <th>Team 2</th>
+                <th>Team 2 Score</th>
+                <th>Winner</th>
+            </tr>
 
- <form action="{{url_for('editresults_page', id=id, task=task)}}" method="POST">
+            <tr>
+                <td><div>
+                    <input type="date" id="start" name="gamedate" value="2023-09-13" min="" max="" />
+                </div></td>
 
-<table>
-    <tr>
-    <th>Date</th>
-    <th>Team 1</th>
-    <th>Team 1 Score</th>
-    <th>Team 2</th>
-    <th>Team 2 Score</th>
-    <th>Winner</th>
-    </tr>
-    </thead>
+                <td><div>
+                    <input type="text" class="form-control" id="teamone" name="teamone" placeholder="" value="{{teamone}}" required>
+                </div></td>
 
-    <tr>
-    <td><div>
-        <input type="text" class="form-control" id="gamedate" name="gamedate" placeholder="" value="{{gamedate}}" required>
-    </div></td>
+                <td><div>
+                    <input type="text" class="form-control" id="teamonescore" name="teamonescore" placeholder="" value="{{teamonescore}}" required>
+                </div></td>
 
-    <td><div>
-        <input type="text" class="form-control" id="teamone" name="teamone" placeholder="" value="{{teamone}}" required>
-    </div></td>
+                <td><div>
+                    <input type="text" class="form-control" id="teamtwo" name="teamtwo" placeholder="" value="{{teamtwo}}" required>
+                </div></td>
 
-    <td><div>
-        <input type="text" class="form-control" id="teamonescore" name="teamonescore" placeholder="" value="{{teamonescore}}" required>
-    </div></td>
+                <td><div>
+                    <input type="text" class="form-control" id="teamtwoscore" name="teamtwoscore" placeholder="" value="{{teamtwoscore}}" required>
+                </div></td>
 
-    <td><div>
-        <input type="text" class="form-control" id="teamtwo" name="teamtwo" placeholder="" value="{{teamtwo}}" required>
-    </div></td>
-
-    <td><div>
-        <input type="text" class="form-control" id="teamtwoscore" name="teamtwoscore" placeholder="" value="{{teamtwoscore}}" required>
-    </div></td>
-
-    <td><div>
-        <input type="text" class="form-control" id="winner" name="winner" placeholder="" value="{{winner}}" required>
-    </div></td>
-
-
-    </tr>
-
-    </form>
-      </div>
-</table>
-<div class="text-end">
+                <td><div>
+                    <input type="text" class="form-control" id="winner" name="winner" placeholder="" value="{{winner}}" required>
+                </div></td>
+            </tr>
+        </table>
+        <div class="text-end">
             <button type="reset" class="btn btn-primary">Reset</button>
             <button  type="submit" class="btn btn-primary" >Submit</button>
         </div>
+    </form>
 </div>
+
+
+
 
 
 {% endblock %}

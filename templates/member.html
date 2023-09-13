@@ -10,43 +10,43 @@ Member
 
 {% block content %}
 <img class="shooter" src="static/images/small_banner.png">
-<p class="htp-banner">MEMBER</p>
+<p class="htp-banner">MEMBERS</p>
 
+ <!-- big sign up button -->
+<div class="p-4 mt-2 text-end">
+    <a class="btn btn-primary signup" href="{{ url_for('updatemember', id=0, task='add') }}">Sign Up Here</a>
+</div>
+
+<!-- if logged in and authorisation number = 0 then user can see a list of members and can edit their info -->
+{% if session and session['authorisation'] == 0 %}
 <h3 class="draw-result">Member Table</h3>
 
-
-<div class="p-4 mt-2 text-end">
-<a class="btn btn-primary" href="{{ url_for('updatemember', id=0, task='add') }}">Add Member</a>
-</div>
-
-    {% for row in member %}
+{% for row in member %}
 <table>
-<tr>
-<th>First Name</th>
-<th>Last Name</th>
-<th>Password</th>
-<th>Username</th>
-<th>Authorisation No.</th>
-</tr>
-<tr>
-<td>{{row['firstname']}}</td>
-<td>{{row['secondname']}}</td>
-<td>{{row['password']}}</td>
-    <td>{{row['username']}}</td>
-<td>{{row['authorisation']}}</td>
-</tr>
- </table>
+    <tr>
+         <!-- column heading -->
+        <th>First Name</th>
+        <th>Last Name</th>
+        <th>Username</th>
+        <th>Authorisation No.</th>
+    </tr>
+    <tr>
+         <!-- info called from database being printed  -->
+        <td>{{row['firstname']}}</td>
+        <td>{{row['secondname']}}</td>
+        <td>{{row['username']}}</td>
+        <td>{{row['authorisation']}}</td>
+    </tr>
+</table>
 
-
-
+ <!-- update and delete buttons -->
 <div class="draw-meta">
-         <a class="btn-primary btn" href="{{ url_for('updatemember', id=row['member_id'], task='update') }}">Update</a>
-         <a class="btn btn-primary" href="{{ url_for('updatemember', id=row['member_id'], task='delete') }}">Delete</a>
+    <a class="btn-primary btn" href="{{ url_for('updatemember', id=row['member_id'], task='update') }}">Update</a>
+    <a class="btn btn-primary" href="{{ url_for('updatemember', id=row['member_id'], task='delete') }}">Delete</a>
 </div>
 
-        {% endfor %}
+{% endfor %}
 
-<!-- Add more rows for additional games -->
-
+{% endif %}
 
 {% endblock %}

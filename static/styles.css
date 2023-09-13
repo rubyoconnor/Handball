@@ -485,6 +485,13 @@ h5{
     margin-top:0.5em;
 }
 
+.signup{
+      font-size: 2.5em;
+    --bs-btn-padding-y:0.1em;
+    margin-top:0.5em;
+
+}
+
 
 /* signup form */
 label, input[type='text'], input[type='email'], textarea{

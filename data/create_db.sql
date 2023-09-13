@@ -6,6 +6,7 @@ drop table if exists results;
 
 
 /* create tables*/
+/* member table */
 create table member(
     member_id integer primary key autoincrement not null,
     firstname text not null,
@@ -15,6 +16,7 @@ create table member(
     authorisation integer not null
 );
 
+/* news table */
 create table news(
     news_id integer primary key autoincrement not null,
     title text not null unique,
@@ -25,6 +27,7 @@ create table news(
     foreign key(member_id) references member(member_id)
 );
 
+/* draw table */
 create table draw(
     draw_id integer primary key autoincrement not null,
     gamedate date not null,
@@ -34,6 +37,7 @@ create table draw(
     gametime integer not null
 );
 
+/* results table */
 create table results(
 result_id integer primary key autoincrement not null,
 gamedate date not null,
@@ -45,8 +49,7 @@ winner text not null
 );
 
 
-
-
+/* inserting information into the member table */
 insert into member(firstname, secondname, username, password, authorisation)
 values('Paul', 'Smith', 'paulsmith','temp', 0 );
 insert into member(firstname, secondname, username, password, authorisation)
@@ -56,13 +59,15 @@ values('Joyce', 'Chan', 'JoyceChan', 'temp', 1 );
 insert into member(firstname, secondname, username, password, authorisation)
 values('Amelia','Rodd','AmeliaRodd', 'temp', 1 );
 
+
+/* inserting information into the news table */
 insert into news(title, subtitle, content, newsdate, member_id)
 values('Amazing news for the U19 NZ Men''s team',
       'The U19 NZ Men''s handball team make it through to compete in the world championship in August.',
       'They made the cut after placing 2nd in the Oceania Championship that took place in December 2022.' || char(10) ||
       'If you want to help support the team, donations would be appreciated',
       '2023-06-22 15:38:00',
-      (select member_id from member where firstname='Paul' )
+      (select member_id from member where firstname='Paul')
       );
 
 insert into news(title, subtitle, content, newsdate, member_id)
@@ -77,6 +82,8 @@ values('NZ Beach Handball Womens Team Selection 2023',
       (select member_id from member where firstname='Jess')
       );
 
+/* inserting information into the draw table */
+
 insert into draw(gamedate, teamone, teamtwo, location, gametime)
 values('2023-08-05',
       'Vic Uni',
@@ -86,15 +93,6 @@ values('2023-08-05',
        );
 
 insert into draw(gamedate, teamone, teamtwo, location, gametime)
-values('2023-08-12',
-      'Hunters',
-      'Spartans',
-      'Akau Tangi',
-       '15:00'
-       );
-
-
-insert into draw(gamedate, teamone, teamtwo, location, gametime)
 values('2023-08-05',
       'Hunters',
       'Bye',
@@ -102,7 +100,13 @@ values('2023-08-05',
        'N/A'
        );
 
-
+insert into draw(gamedate, teamone, teamtwo, location, gametime)
+values('2023-08-12',
+      'Hunters',
+      'Spartans',
+      'Akau Tangi',
+       '15:00'
+       );
 
 insert into draw(gamedate, teamone, teamtwo, location, gametime)
 values('2023-08-12',
@@ -127,6 +131,8 @@ values('2023-08-19',
       'N/A',
        'N/A'
        );
+
+/* inserting information into the results table */
 
 insert into results(gamedate, teamone, teamtwo, teamonescore, teamtwoscore, winner )
 values('2023-08-19',

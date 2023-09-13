@@ -23,13 +23,14 @@ font-weight:bold;
 }
 </style>
 
-
 <div class="container-lg"
-<h1>Your details</h1>
+     <h1>You have successfully signed up</h1>
+
+<h1>Here are your details</h1>
 <table>
 <tr> <td>First Name</td> <td> {{ form_data['firstname'] }} </td></tr>
 <tr> <td>Second Name</td> <td> {{ form_data['secondname'] }} </td></tr>
-<tr> <td>Email</td> <td> {{ form_data['email'] }} </td></tr>
+<tr> <td>Email</td> <td> {{ form_data['username'] }} </td></tr>
 <tr> <td>Password</td> <td> {{ form_data['password'] }} </td></tr>
 <tr> <td>Authorisation</td> <td> {{ form_data['authorisation'] }} </td></tr>
 </table>
@@ -37,7 +38,6 @@ font-weight:bold;
 <div class="text-center">
 <a href="{{ url_for('index') }}" class="btn btn-primary my-3">Cancel</a>
 <a href="{{ url_for('login')}}" class="btn btn-primary">Confirm</a>
-<a href="{{ url_for('signup', **form_data)}}" class="btn btn-primary">Edit</a>
 </div>
 </div>
 
