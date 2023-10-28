@@ -12,19 +12,30 @@ href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" r
 <!-- Latest compiled Javascript -->
 <script
 src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
-
+<script>
+    function enableSubmit(){
+        let inputs = document.getElementsByClassName('required'); // Enter your class name for a required field, this should also be reflected within your form fields.//
+             let btn = document.querySelector('input[type="submit"]');
+             let isValid = true;
+             for (var i = 0; i < inputs.length; i++){
+                 let changedInput = inputs[i];
+                 if (changedInput.value.trim() === "" || changedInput.value === null){
+                     isValid = false;
+                     break;
+                 }
+             }
+             btn.disabled = !isValid;
+    }
+</script>
 
 <link rel="stylesheet" href="static/styles.css">
 
 </head>
 <body>
-
     <nav class="navbar navbar-expand-lg px-3">
-
     <button class="navbar-toggler ms-auto" type="button" data-bs-toggle="collapse" data-bs-target="#collapsibleNavbar">
       <span class="navbar-toggler-icon"></span>
     </button>
-
     <div class="collapse navbar-collapse" id="collapsibleNavbar">
       <ul class="navbar-nav">
         <li class="nav-item">
@@ -74,11 +85,14 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.j
 
         <!-- if logged in: name, authorisation and member_id will print on homepage-->
     {% if session %}
-        <div class="session"> {{ session['firstname'] }} is logged in<br>
-        authorisation is {{ session['authorisation'] }}<br>
-        member_id is {{ session['member_id'] }}
-        </div>
+    <div class="alert alert-success alert-dismissible" role="alert">
+        <h4 class="alert-heading">{{ session['firstname'] }} is logged in</h4>
+        <hr>
+        Your authorisation number is {{ session['authorisation'] }}
+    </div>
     {% endif %}
+
+
 
 
 

@@ -169,11 +169,11 @@ def login():
 
             # error message will print
             else:
-                return render_template("log-in.html", username='JoyceChan', password="temp", error=error)
+                return render_template("log-in.html", username='', password="", error=error)
 
         # error message will print
         else:
-            return render_template("log-in.html", username='JoyceChan', password="temp", error=error)
+            return render_template("log-in.html", username='', password="", error=error)
 
 
 @app.route('/logout')
@@ -419,13 +419,13 @@ def updatemember():
             # dummy data for testing
             temp = {'firstname': 'firstname', 'secondname': 'secondname', 'password': 'password','username':'username','authorisation': 'authorisation'}
             return render_template("updatemember.html",
-                                    id=0,
-                                    task=data['task'],
-                                    firstname=temp['firstname'],
-                                    secondname=temp['secondname'],
-                                    username=temp['username'],
-                                    password=temp['password'],
-                                    authorisation=temp['authorisation'],
+                                   id=0,
+                                   task=data['task'],
+                                   firstname='',
+                                   secondname='',
+                                   username='',
+                                   password='',
+                                   authorisation=temp['authorisation'],
                                    )
 
         # error catcher

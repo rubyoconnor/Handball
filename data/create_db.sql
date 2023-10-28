@@ -48,7 +48,6 @@ teamtwoscore integer not null,
 winner text not null
 );
 
-
 /* inserting information into the member table */
 insert into member(firstname, secondname, username, password, authorisation)
 values('Paul', 'Smith', 'paulsmith','temp', 0 );

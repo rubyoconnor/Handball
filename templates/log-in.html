@@ -8,29 +8,46 @@ login
 {% endblock %}
 
 {% block content %}
-<div class="container-lg py-sm-5 py-1">
-    <div class="news p-4 my-4">
-        <h2>Please Log in</h2>
-        <div class="alert">{{error}}</div>
+<div class="container-lg p-2 mb-4 login">
+    <div class="news p-3">
+        <h5 class="my-0">Log in</h5>
+
+        <div class="alert alert-warning p-1 mt-3" role="alert"> {{error}} </div>
+
         <!-- begin form for logging in  -->
         <form action="{{url_for('login')}}" method="POST">
             <div>
                 <!-- enter username -->
-                <label for="username" class="form-label">PLease enter your username</label>
-                <input type="username" class="form-control" id="username" name="username" placeholder="" value="{{username}}" required>
+                <input type="username" class="form-control form-control-lg" id="username" name="username" placeholder="Username" value="{{username}}" onkeyup="enableSubmit()" required>
             </div>
-            <div>
+            <div class="mt-2">
                  <!-- enter password -->
-                <label for="password" class="form-label">Please enter your password</label>
-                <input type="password" class="form-control" id="password" name="password" placeholder="" value="{{password}}" required>
+                <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="Password" value="{{password}}" onkeyup="enableSubmit()" required>
             </div>
+
             <div class="text-end">
-                <button type="reset" class="btn btn-primary">Reset</button>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="reset" class="btn btn-secondary btn-reset">Reset</button>
             </div>
+
+            <div>
+                <!-- submit button that is disabled until fields above entered -->
+                <input type="submit" value="Log in" class="btn btn-primary w-100 mt-1" disabled>
+            </div>
+
+            <div class="text-center mt-4">
+                <p class="mb-0"> Don't have an account?</p>
+                <a class="btn btn-primary btn-su mt-0" href="{{ url_for('updatemember', id=0, task='add') }}">Sign Up</a>
+            </div>
+
+
         </form>
     </div>
 </div>
+
+
+
+
+
 {% endblock %}
 
 
