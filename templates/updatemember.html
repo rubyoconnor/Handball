@@ -10,37 +10,37 @@ Member edit
 {% block content %}
 <div class="container-lg p-3 news">
      <!-- little heading -->
-    <h2 class="ms-1">Please enter your details</h2>
+    <h5 class="ms-1">Sign Up</h5>
 
      <!-- form  -->
     <form action="{{url_for('updatemember', id=id, task=task)}}" method="POST">
          <!-- enter firstname -->
         <div>
-            <label for="firstname" class="form-label">First Name</label>
-            <input type="text" class="form-control" id="firstname" name="firstname" placeholder="firstname" value="{{firstname}}" required>
+            <label for="firstname" class="form-label mb-0 mt-3">First Name</label>
+            <input type="text" class="form-control form-control-lg" id="firstname" name="firstname" placeholder="firstname" value="{{firstname}}" onkeyup="enableSubmit()" required>
         </div>
 
          <!-- enter secondname -->
         <div>
-            <label for="secondname" class="form-label">Second Name</label>
-            <input type="text" class="form-control" id="secondname" name="secondname" placeholder="secondname" value="{{secondname}}" required>
+            <label for="secondname" class="form-label mb-0 mt-3">Second Name</label>
+            <input type="text" class="form-control form-control-lg" id="secondname" name="secondname" placeholder="secondname" value="{{secondname}}" onkeyup="enableSubmit()" required>
         </div>
 
          <!-- enter username -->
         <div>
-            <label for="username" class="form-label">Username</label>
-            <input type="text" class="form-control" id="username" name="username" placeholder="username" value="{{username}}" required>
+            <label for="username" class="form-label mb-0 mt-3">Username</label>
+            <input type="text" class="form-control form-control-lg" id="username" name="username" placeholder="username" value="{{username}}" onkeyup="enableSubmit()" required>
         </div>
 
          <!-- enter password -->
         <div>
-            <label for="password" class="form-label">Password</label>
-            <input type="password" class="form-control" id="password" name="password" placeholder="password" value="{{password}}" required>
+            <label for="password" class="form-label mb-0 mt-3">Password</label>
+            <input type="password" class="form-control form-control-lg" id="password" name="password" placeholder="password" value="{{password}}" onkeyup="enableSubmit()" required>
         </div>
 
          <!-- enter authorisation -->
         <div>
-            <label for="authorisation">Choose your authorisation number (1 is for normal users and 0 is for NZ Handball workers):</label>
+            <label for="authorisation" class="mb-0 mt-3">Choose your authorisation number (1 is for normal users and 0 is for NZ Handball workers):</label>
              <!-- dropdown menu -->
             <select name="authorisation" id="authorisation">
                 <option value="0">0</option>
@@ -49,10 +49,17 @@ Member edit
         </div>
 
          <!-- submit button -->
-        <div class="text-end">
-            <button type="reset" class="btn btn-primary">Reset</button>
-            <button type="submit" class="btn btn-primary">Submit</button>
-        </div>
+          <div class="text-end">
+                <button type="reset" class="btn btn-secondary btn-reset">Reset</button>
+            </div>
+            <div>
+                <!-- submit button that is disabled until fields above entered -->
+                <input type="submit" value="Sign Up" class="btn btn-primary w-100 mt-1" disabled>
+            </div>
+            <div class="text-center mt-4">
+                <p class="mb-0"> Already have an account?</p>
+                <a class="btn btn-primary btn-su mt-0" href="{{ url_for('login', id=0, task='add') }}">Log in</a>
+            </div>
     </form>
 </div>
 

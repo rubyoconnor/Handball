@@ -9,7 +9,7 @@ Results
 
 
 {% block content %}
-<img class="shooter" src="static/images/small_banner.png">
+<img class="shooter" src="static/images/small_banner.png" alt="Logo: Outline of player shooting">
 <p class="htp-banner">RESULTS</p>
 
 <h3 class="draw-result">Women's league Results</h3>
@@ -22,7 +22,7 @@ Results
 {% for row in results %}
 <table>
 <tr>
-<th>Date</th>
+<th>Game Date</th>
 <th>Team 1</th>
 <th>Team 1 Score</th>
 <th>Team 2</th>
@@ -55,7 +55,7 @@ Results
 {% if session and session['authorisation'] != 0%}
 <table>
 <tr>
-<th>Date</th>
+<th>Game Date</th>
 <th>Team 1</th>
 <th>Team 1 Score</th>
 <th>Team 2</th>
@@ -82,7 +82,7 @@ Results
 {% if 'member_id' not in session %}
 <table>
 <tr>
-<th>Date</th>
+<th>Game Date</th>
 <th>Team 1</th>
 <th>Team 1 Score</th>
 <th>Team 2</th>

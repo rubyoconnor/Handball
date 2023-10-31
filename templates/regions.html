@@ -5,8 +5,117 @@ Regions
 {% endblock %}
 
 {% block banner %}
-static/images/big_banner.jpg
 {% endblock %}
 
 {% block content %}
+<img class="shooter" src="static/images/small_banner.png" alt="Logo: Outline of player shooting">
+<p class="htp-banner region-banner">REGIONS</p>
+
+
+<div class="btn-group btn-group-toggle" data-toggle="buttons">
+  <label class="btn btn-secondary">
+    <input type="radio" name="demo" value="One" autocomplete="off"> Wellington
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="demo" value="Two" autocomplete="off"> Christchurch
+  </label>
+  <label class="btn btn-secondary">
+    <input type="radio" name="demo" value="Three" autocomplete="off"> Dunedin
+  </label>
+</div>
+
+<div id="showOne" class="myDiv">
+  <p class="ml-4 mb-0 wgtn">WELLINGTON</p>
+  <hr style="color:rgb(252, 219, 3);">
+    <p class="wgtn-para"> In Wellington, there is a Womens and a Mens league that takes place on Weekly on Sundays. This is
+    from April - September. The National Club Champs is also held in Wellington. This is where Clubs from across
+    New Zealand come to Wellington to a tournament. All Clubs in Wellington are open to new players even people
+    who have never played before. <br> <br> If you are interested in playing and don't have a club yet, email Jerry at
+    jerry@gmail.com and he will set you up with the club that is the right fit for you. Below are the clubs and some
+    information about them. </p>
+
+  <p class="htp-banner wgtn mb-0 mt-2">CLUBS</p>
+  <div class="row-regions">
+    <div class="column-wgtn">
+      <h5 class="mt-2 ms-3">Victoria University</h5>
+      <img class="img-fluid mx-3 wgtn-photo" src="static/images/vicuniteamphoto.png" alt="Vic Uni Team photo">
+
+      <p class="mx-3 mt-3"> The Vic Uni Handball Club has both 2 mens teams and 1 womens team.
+      Vic Uni is a very welcoming club that is open to players of any ages and
+        experience. You don't have to be a student at Vic Uni to be a part of
+      this club. Their training are weekly on thurdays usually around 8pm. </p>
+
+    </div>
+
+    <div class="column-wgtn">
+      <h5 class="mt-2 ms-3">Hunters</h5>
+      <img class="img-fluid mx-3 wgtn-photo" src="static/images/hunters_women.png" alt="Hunters team photo">
+
+      <p class="mx-3 mt-3">Hunters Handball Club only has one womens team.
+      Hunters have been the reigning champions of the Wellington Handball womens
+        league for 2 years in a row. Hunters also were the champions of the
+        National Club Champs in 2023. This club trains fortnightly on tuesday
+        nights around 7pm. </p>
+    </div>
+
+    <div class="column-wgtn">
+      <h5 class="mt-2 ms-3">Spartanz</h5>
+      <img class="img-fluid mx-3 spartanz" src="static/images/spartanz_mixed.png" alt="Spartanz Club Team photo">
+
+      <p class="mx-3 mt-3"> Spartanz Handball Club have both a mens team and
+a womens team. Spartanz is welcoming to any new players who are keen
+to give handball a go. Spartanz Womens placed 2nd in the Wellington
+Handball League, whilst the Mens team placed 3rd. Spartanz trains on every
+        wednesday at 7.30pm.
+      </p>
+    </div>
+  </div>
+</div>
+
+
+<div id="showTwo" class="myDiv">
+  <p class="ml-4 mb-0 chch">CHRISTCHURCH</p>
+
+  <div class="row-regions">
+    <div class="column-chch">
+      <p class="about-text ms-0"> In Christchurch, there are only two teams in the whole city, one
+      womens and one mens. This means that currently there is no league in christchurch. However they still
+      have trainings and have built a very welcoming community. Christchurch plays in the National Club
+      Championships in Wellington with both teams made it to the finals in 2023. <br> <br> They are also looking for
+      new players so if you are interested in giving it a go, contact Jenny at jenny@hotmail.co.nz and she
+      will be able to provide you with more information. </p>
+
+    </div>
+
+    <div class="ms-4 column-chch">
+      <img class="img-fluid mb-5" src="static/images/canterbury_womens.png" alt="Canterbury Team photo">
+
+
+    </div>
+  </div>
+</div>
+
+<div id="showThree" class="myDiv">
+  <p class="ml-4 mb-0 dun">DUNEDIN</p>
+
+  <div class="row-regions">
+    <div class="column-chch">
+      <p class="about-text ms-0"> In Dunedin, there are three teams in the whole city, one
+      womens and two mens. All these teams are a part of the Otago Handball Club. There is no
+        consistent club league in Dunedin, but they still have trainings and have built a
+        very welcoming community. Dunedin also has a school league that schools participate in. Otago
+        Handball plays in the National Club Championships in Wellington with their mens team
+        winning the tournament in 2023. <br> <br> They are also looking for new players so if you are interested
+        in giving it a go, contact Jenny at jenny@hotmail.co.nz and she will be able to provide you with
+        more information. </p>
+
+    </div>
+
+    <div class="ms-4 column-chch">
+      <img class="img-fluid mb-5" src="static/images/otago_mens.png" alt="Otago Team Photo">
+
+
+    </div>
+  </div>
+</div>
 {% endblock %}

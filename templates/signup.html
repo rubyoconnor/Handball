@@ -39,10 +39,17 @@ Sign up
             <input id="authorisation" class="form-control" name="authorisation" placeholder="" value="{{authorisation}}">
         </div>
 
-        <div class="text-end">
-            <button type="reset" class="btn btn-primary">Reset</button>
-            <button type="submit" class="btn btn-primary" >Submit</button>
-        </div>
+           <div class="text-end">
+                <button type="reset" class="btn btn-secondary btn-reset">Reset</button>
+            </div>
+            <div>
+                <!-- submit button that is disabled until fields above entered -->
+                <input type="submit" value="Sign Up" class="btn btn-primary w-100 mt-1" disabled>
+            </div>
+            <div class="text-center mt-4">
+                <p class="mb-0"> Already have an account?</p>
+                <a class="btn btn-primary btn-su mt-0" href="{{ url_for('login', id=0, task='add') }}">Log in</a>
+            </div>
     </form>
 </div>
 

@@ -9,9 +9,9 @@ News
 
 {% block content %}
 <div class="container-lg py-sm-5 py-1">
-    <div class="news p-4 my-4">
+    <div class="news p-4">
          <!-- subheading for page -->
-        <h2>Please enter/update your news item</h2>
+        <h2 class="mb-3 ms-0">Please enter/update your news item</h2>
 
          <!-- form  -->
         <form action="{{url_for('news_formpage', id=id, task=task)}}" method="POST">

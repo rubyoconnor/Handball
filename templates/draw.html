@@ -9,7 +9,7 @@ Draw
 
 {% block content %}
 <!-- banner -->
-<img class="shooter" src="static/images/small_banner.png">
+<img class="shooter" src="static/images/small_banner.png" alt="Logo: Outline of player shooting">
 <p class="htp-banner">DRAW</p>
 
 <!-- subheading for the page  -->
@@ -26,7 +26,7 @@ Draw
 {% for row in draw %}
 <table>
     <tr>
-        <th>Date</th>
+        <th>Game Date</th>
         <th>Opponent 1</th>
         <th>Opponent 2</th>
         <th>Location</th>
@@ -56,13 +56,12 @@ Draw
 {% if session and session['authorisation'] != 0%}
 <table>
     <tr>
-        <th>Date</th>
+        <th>Game Date</th>
         <th>Opponent 1</th>
         <th>Opponent 2</th>
         <th>Location</th>
         <th>Time</th>
     </tr>
-
     {% for row in draw %}
     <tr>
         <td>{{row['gamedate']}}</td>
@@ -82,7 +81,7 @@ Draw
 <table>
     <tr>
         <!-- column headings  -->
-        <th>Date</th>
+        <th>Game Date</th>
         <th>Opponent 1</th>
         <th>Opponent 2</th>
         <th>Location</th>
