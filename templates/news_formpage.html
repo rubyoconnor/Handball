@@ -8,8 +8,11 @@ News
 {% endblock %}
 
 {% block content %}
-<div class="container-lg py-sm-5 py-1">
-    <div class="news p-4">
+<!-- banner -->
+<img class="shooter" src="static/images/small_banner.png" alt="Logo: Outline of player shooting">
+<p class="htp-banner">NEWS</p>
+
+<div class="container-lg news">
          <!-- subheading for page -->
         <h2 class="mb-3 ms-0">Please enter/update your news item</h2>
 
@@ -36,10 +39,9 @@ News
 
              <!-- submit button -->
             <div class="text-end">
-                <button type="reset" class="btn btn-primary">Reset</button>
-                <button  type="submit" class="btn btn-primary" >Submit</button>
+                <button type="reset" class="btn btn-primary mb-3">Reset</button>
+                <button  type="submit" class="btn btn-primary mb-3" >Submit</button>
             </div>
         </form>
-    </div>
 </div>
 {% endblock %}

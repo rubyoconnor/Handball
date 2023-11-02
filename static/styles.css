@@ -12,26 +12,26 @@ body{
     background-color: rgb(0,0,0);
     border-bottom:1px solid black;
         }
-        
+
 .nav-item:hover{
     background-color:rgb(255,255,255);
         }
-        
+
 .nav-link{
     font-size: 1.5em;
     color:rgb(255,255,255);
         }
-        
+
 .nav-link:hover{
     color:rgb(0,0,0);
         }
-        
+
 .btn-outline{
     color:rgb(255,255,255);
     border:1px solid white;
-    padding:0 1em; 
+    padding:0 1em;
         }
-        
+
 .btn-outline:hover{
     background-color:rgb(255,255,255);
         }
@@ -39,6 +39,9 @@ body{
 .draw-result{
     margin-top:2.5em;
     margin-left:0.7em;
+    color:rgb(255,255,255);
+    font-size:2.5em;
+    font-weight:300;
 }
 
 .container-lg{
@@ -46,7 +49,6 @@ body{
     background-color:rgb(255,255,255);
     overflow:auto;
     margin-bottom:1.5em;
-    width:650px;
     margin-top:6em;
 }
 
@@ -82,7 +84,7 @@ th{
 }
 
 .navbar-toggler-icon{
-    background-color:rgb(255,255,255);  
+    background-color:rgb(255,255,255);
 }
 
 nav .btn-outline{
@@ -109,8 +111,8 @@ h2{
 
 h3{
     font-size:2.5em;
-    color:rgb(255,255,255);
     font-weight:300;
+    color: rgb(255,255,255);
 }
 
 h5{
@@ -133,24 +135,63 @@ h5{
 }
 
 /*Homepage columns*/
- .left-column {
-    float:left;
-    position:absolute;
-    position:relative;
-    width: 67%;
-    padding: 20px;
-    margin-top:2.5em;
-    }
+.column {
+    float: left;
+}
 
-.right-column {
-     width: 30%;
-     padding: 20px;
-     display: flex;
-     flex-direction: column;
-     margin-left:0em;
-     margin-right:2em;
-     margin-top:2.5em;
-    }
+.left{
+  width: 67%;
+}
+
+.right{
+    width: 30%;
+}
+
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.left-wgtn{
+    width:31.8%;
+    margin-right: 1em;
+    background-color:white;
+    border:5px solid rgb(252, 219, 3);
+}
+
+.middle-wgtn{
+    width:31.8%;
+    margin-right: 1em;
+    background-color:white;
+    border:5px solid rgb(252, 219, 3);
+}
+
+.right-wgtn{
+    width:31.8%;
+    margin-right: 1em;
+    background-color:white;
+    border:5px solid rgb(252, 219, 3);
+}
+
+.left-chch{
+    width:50%;
+}
+
+.right-chch{
+    width:50%;
+}
+
+.left-box{
+    width:72%;
+    margin-top:0.5em;
+}
+
+.right-box{
+    width:28%;
+    margin-top:0.6em;
+
+}
 
 /* About History of Handball style code*/
 .hr-lines{
@@ -180,9 +221,16 @@ h5{
     right: 0;
 }
 
+
 .about-text{
     margin-left:3em;
     margin-right:2em;
+    font-size:1.15em;
+    color:rgb(255,255,255);
+}
+
+.about-dun{
+    margin-left:0em;
     font-size:1.15em;
     color:rgb(255,255,255);
 }
@@ -236,8 +284,7 @@ h5{
     margin-bottom:1em;
     margin-right:2em;
     text-align: center;
-    height:304px;
-    width:430px;
+    height:307px;
     }
 
 .top{
@@ -254,24 +301,19 @@ h5{
     }
 
 .events{
-    float: left;
     font-size:1.3em;
-    font-weight:bold;
-    margin-top:0.8em;
-    margin-left:0.9em;
+    font-weight:600;
 }
 
 .event-photo{
-    width:400px;
     border: 5px solid rgb(255,255,255);
+    max-width:94%;
+    margin-bottom: 1em;
 }
 
 .date{
-    float: right;
     font-size:1.2em;
-    font-weight:bold;
-    margin-top:0.9em;
-    margin-right:0.9em;
+    font-weight:600;
 }
 
 .footer-content{
@@ -286,7 +328,7 @@ h5{
 
 .footer-content p:first-child{
     font-weight:600;
-    font-size: 1.5em; 
+    font-size: 1.5em;
 }
 
 .heading{
@@ -340,26 +382,19 @@ h5{
 
    }
 
-.htp-photo{
-    width:325px;
-    border: 5px solid green;
-}
+
 
 .subtitle-box{
     background-color: rgb(141,228,97);
-    width:1250px;
+    width:100%;
     margin-top:7em;
-    margin-left:5em;
-    margin-right:2em;
     height:5px;
     }
 
 .subtitle-box-2{
    background-color: green;
-   width:1250px;
+   width:100%px;
    margin-top:0em;
-   margin-left:5em;
-   margin-right:2em;
    height:5px;
    }
 
@@ -373,8 +408,6 @@ h5{
 }
 
 .col-8{
-    position:absolute;
-    position:relative;
     float:left;
     width:20%;
     margin-right:0em;
@@ -421,9 +454,7 @@ h5{
 .calendar-icon{
     margin-top:1em;
     width:50px;
-
 }
-
 
 .location-icon{
     width:25px;
@@ -458,10 +489,6 @@ h5{
     color: gray;
 }
 
-.news{
-    max-width: 800px;
-    border-radius: 1em;
-}
 .news-text{
     font-size: 1.25em;
 }
@@ -490,9 +517,21 @@ h5{
     margin-top:0.5em;
 }
 
+.news{
+    max-width:600px;
+}
+
 .login{
     max-width: 500px;
     border-radius: 1em;
+}
+
+signup{
+    max-width:550px;
+}
+
+.htp-box{
+    background-color:rgb(255,255,255,0)
 }
 
 .btn-su{
@@ -531,7 +570,7 @@ form p{
 .myDiv{
 	display:none;
     margin-top:5em;
-    margin-left:2em;
+    margin-left: 2em;
 }
 
 #showOne{
@@ -589,10 +628,10 @@ form p{
     text-shadow: -1px 0 blue, 0 1px blue, 1px 0 blue, 0 -1px blue;
 }
 
-
-
 .chch-photo{
-    width:400px;
+    max-width:80%;
+    border: 5px solid rgb(0,0,0);
+
 }
 
 .wgtn-para{
@@ -606,14 +645,10 @@ form p{
   clear: both;
 }
 
-.img-fluid{
-    width:400px;
+.clubs{
     border:3px solid rgb(0,0,0);
 }
 
-.spartanz{
-    height:225px;
-}
 
 
 @media only screen and (max-width:768px) {
@@ -622,61 +657,47 @@ form p{
     }
 
     h1{
-        color:rgb(255,255,255);
         font-size:1.5em;
-        margin-top:-10em;
+        text-align:start;
+        margin-left:1em;
+}
 
+    .about-text{
+        font-size:1em;
+        margin-left: 1.5em;
+    }
+
+    .history{
+        font-size:1em;
+        margin-left: 1.5em;
+    }
+
+    .history-2{
+        font-size:1em;
+        margin-left: 1.5em;
     }
 
     h2{
         font-size:1.5em;
-    }
+        text-align:start;
+        margin-left:1em;
+}
 
     h3{
         color:rgb(0,0,0);
-    }
-
-    .htp-banner{
-        margin-left:0.5em;
-        font-size:4em;
-        margin-top:3.3em;
-    }
-
-    .region-banner{
-        margin-top:0em;
-    }
-
-    .wgtn{
-        margin-left:0em;
-        font-size:4em;
-    }
-
-     .chch{
-        margin-left:0em;
-        font-size:4em;
-    }
-
-     .dun{
-        margin-left:0em;
-        font-size:4em;
-    }
-
-    .btn-group{
-        margin-left:2.5em;
-        margin-top:1em;
-    }
-
-    .hr-lines{
-        position: relative;
-        max-width: 600px;
-        margin: 100px auto;
-        margin-bottom:1em;
+        margin-left: 0.5em;
+        font-size: 2em;
 }
+
+    .column {
+        width: 100%;
+        margin-top:2em;
+  }
 
      .hr-lines:before{
         content:" ";
-        height: 2px;
-        width: 70px;
+        height: 0px;
+        width: 0px;
         background:red;
         display: block;
         position: absolute;
@@ -686,8 +707,8 @@ form p{
 
     .hr-lines:after{
         content:" ";
-        height: 2px;
-        width: 70px;
+        height: 0px;
+        width: 0px;
         background:red;
         display: block;
         position: absolute;
@@ -695,468 +716,208 @@ form p{
         right: 0;
 }
 
-    .hr-lines-2{
-        position: relative;
-        max-width: 700px;
-        margin: 50px auto;
-        margin-top:1em;
-        margin-bottom:1em;
-
-}
     .hr-lines-2:before{
         content:" ";
-        height: 2px;
-        width: 110px;
-        background:green;
+        height: 0px;
+        width: 0px;
+        background:red;
         display: block;
         position: absolute;
         top: 50%;
         left: 0;
-    }
+}
 
     .hr-lines-2:after{
         content:" ";
-        height: 2px;
-        width: 110px;
-        background:green;
+        height: 0px;
+        width: 0px;
+        background:red;
         display: block;
         position: absolute;
         top: 50%;
         right: 0;
 }
 
-    .left-column{
-        float:left;
-        position:absolute;
-        position:relative;
-        width: 100%;
-        padding: 20px;
-        margin-top:2.5em;
-    }
-
-    .right-column {
-        width: 100%;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        margin-left:0em;
-        margin-right:2em;
-        margin-top:2.5em;
-    }
-
-    .about-text{
-        margin-left:0.5em;
-        margin-top:0em;
-        font-size:1em;
-    }
-
-    .column-1 {
-        width: 436px;
-        margin-left:2em;
-    }
-
-    .history{
-        margin-left:0.5em;
-        margin-top:0em;
-        font-size:1em;
-    }
-
-    .history-2{
-        margin-left:0.5em;
-        margin-top:0em;
-        font-size:1em;
-        margin-bottom:0em;
-    }
-
     .box{
-        width: 100%;
-        margin-bottom:1em;
-        margin-right:2em;
-        text-align: center;
-        width:543px;
+        align-content: center;
+        width:100%;
+        height:auto;
     }
 
-    .column-wgtn{
-        width: 95%;
-        margin-right: 2em;
-        margin-bottom:1.5em;
-        background-color: white;
-        border: 5px solid rgb(252, 219, 3);
-    }
-
-    .column-chch{
-        float: left;
-        width: 94%;
-        margin-right: 1em;
+    .wgtn{
+        font-size:3em;
+        margin-left:0em;
+        text-align: start;
 }
-
-    h5{
-        font-size:1.5em;
-        margin-bottom:0em;
+    .chch{
+        font-size:3em;
     }
 
-    .wgtn-photo{
-        margin-top:0.5em;
-        width:94%;
+    .dun{
+        font-size:3em;
     }
 
-    .spartanz{
-        height:250px;
-        width:94%;
-        margin-top:0.5em;
 
-}
 
-    .subtitle-box{
-        width:450px;
-        margin-left:2.5em;
-        height:5px;
-        margin-top:5em;
-    }
-
-    .htp-line{
-        margin-top:0em;
-    }
-
-    .subtitle-box-2{
-        width:450px;
-        margin-top:0em;
-        margin-left:2.5em;
-        height:5px;
-   }
-
-    .heading{
-        text-align:center;
-        font-size: 2em;
-        margin-top:0em;
-}
-
-    .heading-2{
-        text-align:center;
-        font-size: 2em;
-        margin-top:0em;
-}
 
     .learn-hb{
+        text-align: start;
+        margin-left:1em;
         font-size:1em;
-        margin-left:2em;
-        margin-right:2em;
-}
+    }
+    .heading{
+        text-align: start;
+        margin-left:1em;
+        font-size:2em;
+    }
 
     .col-8{
-        width:20%;
-        margin-right:0em;
-        margin-left:4em;
+    float:left;
+    width:20%;
+    margin-right:0em;
+    margin-left:3em;
+
 }
 
     .info{
         font-size:1em;
     }
 
-    .col-9 {
-        width: 94%;
-        margin-top:0em;
-   }
-
     .rules{
         font-size:1em;
-        margin-left:2.5em;
+        margin-left:1em;
         margin-right:2em;
-        margin-top:-1.5em;
+        margin-top:0em;
 }
-    .col-10 {
-        width: 94%;
-        margin-left:3em;
-        margin-right:2em;
-   }
+
+    .heading-2{
+        font-size:2em;
+        text-align:start;
+        margin-left:1em;
+    }
+
 
     .htp-photo{
-        width:280px;
-        transform: rotate(+90deg);
-        margin-left:4em;
-        margin-top:-8em;
-        margin-bottom:-6em;
+        width:100%;
+        margin-left:1em;
+
     }
 
-    .container-lg{
-        margin-bottom:1.5em;
-        width:450px;
-        margin-top:2em;
-}
-
-    .draw-result{
+    .about-dun{
+        margin-left:0em;
+        font-size:1em;
         color:rgb(255,255,255);
-        margin-top:0em;
-        font-size:1.5em;
-        margin-bottom:0em;
+}
+    .court{
+        max-width:50%;
     }
+
+    .left-wgtn{
+        max-width:94%;
+        margin-left: 1em;
+    }
+    .middle-wgtn{
+        max-width:94%;
+        margin-left: 1em;
+
+    }
+    .right-wgtn{
+        max-width:94%;
+        margin-left: 1em;
+    }
+
+    .chch-photo{
+        max-width:94%;
+    }
+
+    .myDiv{
+        display:none;
+        margin-top:5em;
+        margin-left: 0em;
 }
 
-@media only screen and (max-width:576px){
+     .left-box{
+         margin-top:0.5em;
+         margin-left:0.5em;
+         text-align: start;
+
+    }
+
+    .right-box{
+        text-align: start;
+        margin-top:0em;
+        margin-left: 0.5em;
+    }
+
+    table{
+        font-size:0.6em;
+
+    }
+
+
+
+
+}
+
+@media only screen and (max-width:576px) {
+
+     .column {
+    width: 100%;
+  }
+
+    .hr-lines:before{
+        content:" ";
+        height: 0px;
+        width: 0px;
+        background:red;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+}
+
+    .hr-lines:after{
+        content:" ";
+        height: 0px;
+        width: 0px;
+        background:red;
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 0;
+}
+
+    .hr-lines-2:before{
+        content:" ";
+        height: 0px;
+        width: 0px;
+        background:red;
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 0;
+}
+
+    .hr-lines-2:after{
+        content:" ";
+        height: 0px;
+        width: 0px;
+        background:red;
+        display: block;
+        position: absolute;
+        top: 50%;
+        right: 0;bo
+}
 
     h1{
-        color:rgb(255,255,255);
         font-size:1.5em;
-        margin-top:-10em;
-    }
-
-    h2{
-        font-size:1.5em;
-    }
-
-    h3{
-        color:rgb(0,0,0);
-    }
-
-    .htp-banner{
-        margin-left:0.5em;
-        font-size:4em;
-        margin-top:3.3em;
-    }
-
-    .region-banner{
-        margin-top:0em;
-    }
-
-    .wgtn{
-        margin-left:0em;
-    }
-
-     .chch{
-        margin-left:0em;
-    }
-
-     .dun{
-        margin-left:0em;
-    }
-
-    .btn-group{
-        margin-left:2.5em;
-    }
-
-    .hr-lines{
-        position: relative;
-        max-width: 600px;
-        margin: 100px auto;
-        margin-bottom:1em;
+        text-align:start;
+        margin-left:1em;
 }
 
-     .hr-lines:before{
-        content:" ";
-        height: 2px;
-        width: 70px;
-        background:red;
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 0;
-}
-
-    .hr-lines:after{
-        content:" ";
-        height: 2px;
-        width: 70px;
-        background:red;
-        display: block;
-        position: absolute;
-        top: 50%;
-        right: 0;
-}
-
-    .hr-lines-2{
-        position: relative;
-        max-width: 700px;
-        margin: 50px auto;
-        margin-top:1em;
-        margin-bottom:1em;
+    about-text{
+        font-size:0.5em;
+        margin-left: 1em;
+    }
 
 }
-    .hr-lines-2:before{
-        content:" ";
-        height: 2px;
-        width: 110px;
-        background:green;
-        display: block;
-        position: absolute;
-        top: 50%;
-        left: 0;
-    }
-
-    .hr-lines-2:after{
-        content:" ";
-        height: 2px;
-        width: 110px;
-        background:green;
-        display: block;
-        position: absolute;
-        top: 50%;
-        right: 0;
-}
-
-    .left-column{
-        float:left;
-        position:absolute;
-        position:relative;
-        width: 100%;
-        padding: 20px;
-        margin-top:2.5em;
-    }
-
-    .right-column {
-        width: 100%;
-        padding: 20px;
-        display: flex;
-        flex-direction: column;
-        margin-left:0em;
-        margin-right:2em;
-        margin-top:2.5em;
-    }
-
-    .about-text{
-        margin-left:0.5em;
-        margin-top:0em;
-        font-size:1em;
-    }
-
-    .column-1 {
-        width: 436px;
-        margin-left:2em;
-    }
-
-    .history{
-        margin-left:0.5em;
-        margin-top:0em;
-        font-size:1em;
-    }
-
-    .history-2{
-        margin-left:0.5em;
-        margin-top:0em;
-        font-size:1em;
-        margin-bottom:0em;
-    }
-
-    .box{
-        width: 100%;
-        margin-bottom:1em;
-        margin-right:2em;
-        text-align: center;
-        width:543px;
-    }
-
-    .column-wgtn{
-        width: 95%;
-        margin-right: 2em;
-        margin-bottom:1.5em;
-        background-color: white;
-        border: 5px solid rgb(252, 219, 3);
-    }
-
-    .column-chch{
-        float: left;
-        width: 94%;
-        margin-right: 1em;
-}
-
-    h5{
-        font-size:1.5em;
-        margin-bottom:0em;
-    }
-
-    .wgtn-photo{
-        margin-top:0.5em;
-        width:94%;
-    }
-
-    .spartanz{
-        height:250px;
-        width:94%;
-        margin-top:0.5em;
-}
-
-    .subtitle-box{
-        width:450px;
-        margin-left:2.5em;
-        height:5px;
-        margin-top:5em;
-    }
-
-    .htp-line{
-        margin-top:0em;
-    }
-
-    .subtitle-box-2{
-        width:450px;
-        margin-top:0em;
-        margin-left:2.5em;
-        height:5px;
-   }
-
-    .heading{
-        text-align:center;
-        font-size: 2em;
-        margin-top:0em;
-}
-
-    .heading-2{
-        text-align:center;
-        font-size: 2em;
-        margin-top:0em;
-}
-
-    .learn-hb{
-        font-size:1em;
-        margin-left:2em;
-        margin-right:2em;
-}
-
-    .col-8{
-        width:20%;
-        margin-right:0em;
-        margin-left:4em;
-}
-
-    .info{
-        font-size:1em;
-    }
-
-    .col-9 {
-        width: 94%;
-        margin-top:0em;
-   }
-
-    .rules{
-        font-size:1em;
-        margin-left:2.5em;
-        margin-right:2em;
-        margin-top:-1.5em;
-}
-    .col-10 {
-        width: 94%;
-        margin-left:3em;
-        margin-right:2em;
-   }
-
-    .htp-photo{
-        width:280px;
-        transform: rotate(+90deg);
-        margin-left:4em;
-        margin-top:-8em;
-        margin-bottom:-6em;
-    }
-
-    .container-lg{
-        margin-bottom:1.5em;
-        width:450px;
-        margin-top:2em;
-}
-
-    .draw-result{
-        color:rgb(255,255,255);
-        margin-top:0em;
-        font-size:1.5em;
-        margin-bottom:0em;
-    }
-}
-
-

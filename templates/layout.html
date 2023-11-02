@@ -87,23 +87,9 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.j
 
 </nav>
 
-      <!-- if logged in: name, authorisation and member_id will print on homepage-->
-    {% if session %}
-    <div class="alert alert-success alert-dismissible logged" role="alert">
-        <strong class="alert-heading">Hi {{ session['firstname'] }}! You have logged in</strong>
-        <hr>
-        Your authorisation number is {{ session['authorisation'] }}
-        <button type="button" class="btn-close"
-                data-bs-dismiss="alert"
-                aria-label="Close">
-
-        </button>
-    </div>
-    {% endif %}
-
-
     <div class="grad-container">
-    <img class="nzhandball" src="{% block banner %}{% endblock %}">
+    {% block banner %}
+        {% endblock %}
 
 {% block content%}
 
@@ -115,4 +101,3 @@ src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.j
     </div>
 </body>
 </html>
-
